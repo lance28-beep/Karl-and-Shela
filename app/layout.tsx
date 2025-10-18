@@ -25,9 +25,9 @@ export const metadata: Metadata = {
     address: false,
     telephone: true,
   },
-  metadataBase: new URL("https://casslyandmark.com"),
+  metadataBase: new URL("https://cassly-jane-mark-florence-invitatio.vercel.app/"),
   alternates: {
-    canonical: "https://casslyandmark.com/",
+    canonical: "https://cassly-jane-mark-florence-invitatio.vercel.app/",
   },
   icons: {
     icon: [
@@ -52,13 +52,13 @@ export const metadata: Metadata = {
     title: "Cassly Jane & Mark Florence Wedding | December 20, 2025 | Tagaytay",
     description:
       "Celebrate the union of Cassly Jane and Mark Florence on December 20, 2025, in Tagaytay City, Philippines. Discover our love story, RSVP, view the gallery, and leave your wishes!",
-    url: "https://casslyandmark.com/",
+    url: "https://cassly-jane-mark-florence-invitatio.vercel.app/",
     siteName: "Cassly Jane & Mark Florence Wedding",
     locale: "en_PH",
     type: "website",
     images: [
       {
-        url: "https://casslyandmark.com/CoupleImage/couple_1.png",
+        url: "https://cassly-jane-mark-florence-invitatio.vercel.app/CoupleImage/couple_1.png",
         width: 1200,
         height: 630,
         alt: "Cassly Jane & Mark Florence Wedding Invitation - December 20, 2025, Tagaytay",
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     title: "Cassly Jane & Mark Florence Wedding Invitation",
     description:
       "You're invited to the wedding of Cassly Jane and Mark Florence! December 20, 2025, Tagaytay City, Philippines. RSVP, view our gallery, and leave a message! #CasslyAndMarkWedding",
-    images: ["https://casslyandmark.com/CoupleImage/couple_1.png"],
+    images: ["https://cassly-jane-mark-florence-invitatio.vercel.app/CoupleImage/couple_1.png"],
     creator: "@casslyandmark",
   },
   robots: {
@@ -108,7 +108,7 @@ export const metadata: Metadata = {
           },
         },
       ],
-      image: ["https://casslyandmark.com/CoupleImage/couple_1.png"],
+      image: ["https://cassly-jane-mark-florence-invitatio.vercel.app/couple_1.png"],
       description:
         "You're invited to the wedding of Cassly Jane and Mark Florence! Join us on December 20, 2025, in Tagaytay City, Philippines. RSVP, read our love story, view our gallery, and leave a message for the couple.",
       organizer: {
@@ -117,7 +117,7 @@ export const metadata: Metadata = {
       },
       offers: {
         "@type": "Offer",
-        url: "https://casslyandmark.com/",
+        url: "https://cassly-jane-mark-florence-invitatio.vercel.app/",
         availability: "https://schema.org/InStock",
         price: "0",
         priceCurrency: "PHP",
