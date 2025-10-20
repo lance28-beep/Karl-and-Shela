@@ -5,6 +5,7 @@ import { siteContent } from "@/lib/content"
 import Stack from "@/components/stack"
 import { motion } from "motion/react"
 import { useEffect, useState } from "react"
+import Aurora from "./Aurora"
 
 export function Hero() {
   const [timeLeft, setTimeLeft] = useState({
@@ -93,10 +94,20 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen bg-gradient-to-b from-sand/30 to-cream flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-sand/30 to-cream"
     >
+      {/* Aurora Background */}
+      <div className="absolute inset-0 z-0">
+        <Aurora
+          colorStops={["#ca8e90", "#d9aeb8", "#ead1d5"]}
+          blend={0.5}
+          amplitude={1.0}
+          speed={0.5}
+        />
+      </div>
+
       {/* Enhanced Background decorative elements with parallax */}
-      <div className="absolute inset-0 opacity-15">
+      <div className="absolute inset-0 opacity-15 z-10">
         <motion.div 
           className="absolute top-20 left-10 w-72 h-72 bg-teal rounded-full mix-blend-multiply filter blur-3xl"
           style={{ y: scrollY * 0.3 }}
@@ -165,7 +176,7 @@ export function Hero() {
 
       {/* Floating particles */}
       {isClient && (
-        <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden z-10">
           {particlePositions.map((position, i) => (
             <motion.div
               key={i}
@@ -190,7 +201,7 @@ export function Hero() {
 
       {/* Content */}
       <motion.div 
-        className="relative z-10 max-w-4xl mx-auto px-4 md:px-8 py-20 text-center"
+        className="relative z-20 max-w-4xl mx-auto px-4 md:px-8 py-20 text-center"
         variants={staggerChildren}
         initial="initial"
         animate="animate"
@@ -211,7 +222,7 @@ export function Hero() {
 
         {/* Main heading */}
         <motion.h1 
-          className="heading-lg text-teal mb-6 text-balance-custom"
+          className="heading-lg text-white mb-6 text-balance-custom drop-shadow-lg"
           variants={fadeInUp}
         >
           {siteContent.hero.title}
@@ -219,7 +230,7 @@ export function Hero() {
 
         {/* Subtitle */}
         <motion.p 
-          className="text-xl md:text-2xl text-ink/80 mb-12 font-lora leading-relaxed max-w-2xl mx-auto"
+          className="text-xl md:text-2xl text-white/90 mb-12 font-lora leading-relaxed max-w-2xl mx-auto drop-shadow-md"
           variants={fadeInUp}
         >
           {siteContent.hero.subtitle}
@@ -230,7 +241,7 @@ export function Hero() {
           className="mb-12"
           variants={fadeInUp}
         >
-          <h3 className="text-lg font-lora text-ink/70 mb-6">Counting down to our special day</h3>
+          <h3 className="text-lg font-lora text-white/90 mb-6 drop-shadow-md">Counting down to our special day</h3>
           <div className="grid grid-cols-2 md:flex md:justify-center gap-3 md:gap-8 max-w-2xl mx-auto">
             {[
               { label: "Days", value: timeLeft.days },
@@ -240,17 +251,17 @@ export function Hero() {
             ].map((item, index) => (
               <div key={item.label} className="text-center">
                 <motion.div 
-                  className="bg-white/80 backdrop-blur-sm rounded-lg p-3 md:p-6 shadow-lg border border-teal/20 touch-manipulation"
+                  className="bg-white/90 backdrop-blur-sm rounded-lg p-3 md:p-6 shadow-xl border border-white/30 touch-manipulation"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ type: "spring", stiffness: 300, delay: index * 0.1 }}
                 >
-                  <div className="text-xl md:text-3xl font-bold text-teal font-lora">
+                  <div className="text-xl md:text-3xl font-bold font-lora drop-shadow-lg" style={{ color: '#5f674f' }}>
                     {item.value.toString().padStart(2, '0')}
                   </div>
-                  <div className="text-xs md:text-sm text-ink/60 font-lora mt-1">
+                  <div className="text-xs md:text-sm font-lora mt-1 drop-shadow-sm" style={{ color: '#5f674f' }}>
                     {item.label}
                   </div>
                 </motion.div>
@@ -261,7 +272,7 @@ export function Hero() {
 
         {/* Enhanced Date and venue card */}
         <motion.div 
-          className="bg-white/70 backdrop-blur-md rounded-2xl p-8 md:p-12 mb-12 shadow-xl border border-white/50 relative overflow-hidden"
+          className="bg-white/85 backdrop-blur-md rounded-2xl p-8 md:p-12 mb-12 shadow-xl border border-white/60 relative overflow-hidden"
           variants={fadeInUp}
           whileHover={{ scale: 1.02 }}
           transition={{ type: "spring", stiffness: 300 }}
@@ -277,15 +288,18 @@ export function Hero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
             >
-              <div className="w-16 h-1 bg-teal mx-auto mb-4 rounded-full" />
-          <p className="text-lg md:text-xl font-lora text-ink mb-4">{siteContent.hero.date}</p>
+              <div className="w-20 h-1 mx-auto mb-6 rounded-full drop-shadow-sm" style={{ backgroundColor: '#5f674f' }} />
+          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-playfair font-bold mb-6 drop-shadow-lg" style={{ color: '#5f674f' }}>{siteContent.hero.date}</p>
             </motion.div>
             
-            <div className="space-y-4">
-              <p className="text-ink/70 font-lora text-center">{siteContent.hero.ceremony}</p>
-              <div className="w-8 h-px bg-teal/30 mx-auto" />
-              <p className="text-ink/70 font-lora text-center whitespace-pre-line">{siteContent.hero.reception}</p>
-              <p className="text-sm text-ink/60 font-lora text-center mt-4">{siteContent.hero.receptionFull}</p>
+            <div className="space-y-6">
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-playfair font-semibold text-center drop-shadow-md leading-relaxed" style={{ color: '#5f674f' }}>{siteContent.hero.ceremony}</p>
+              <div className="w-12 h-0.5 mx-auto drop-shadow-sm" style={{ backgroundColor: '#5f674f' }} />
+              <div className="space-y-3">
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-lora text-center drop-shadow-sm font-medium" style={{ color: '#5f674f' }}>{siteContent.hero.reception}</p>
+                <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-playfair font-bold text-center drop-shadow-md" style={{ color: '#5f674f' }}>Alta D' Tagaytay Hotel</p>
+              </div>
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl font-lora text-center mt-6 leading-relaxed drop-shadow-sm" style={{ color: '#5f674f' }}>{siteContent.hero.receptionFull}</p>
             </div>
         </div>
         </motion.div>
@@ -332,8 +346,8 @@ export function Hero() {
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-sm text-ink/60 font-lora">Scroll to explore</span>
-        <svg className="w-6 h-6 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <span className="text-sm text-white/80 font-lora drop-shadow-sm">Scroll to explore</span>
+        <svg className="w-6 h-6 text-white drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>
       </div>

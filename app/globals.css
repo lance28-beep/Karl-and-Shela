@@ -4,49 +4,62 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  /* Global surface and text */
+  --background: #ead1d5; /* lightest rose for page background */
+  --foreground: #5f674f; /* deep sage for primary text */
+
+  /* Surfaces */
+  --card: #ffffff;
+  --card-foreground: #5f674f;
+  --popover: #ffffff;
+  --popover-foreground: #5f674f;
+
+  /* Brand roles */
+  --primary: #5f674f; /* deep sage */
+  --primary-foreground: #ffffff;
+  --secondary: #c5cac4; /* light sage */
+  --secondary-foreground: #5f674f;
+  --muted: #d9aeb8; /* soft rose */
+  --muted-foreground: #5f674f;
+  --accent: #ca8e90; /* rose accent */
+  --accent-foreground: #ffffff;
+  --destructive: #ca8e90; /* reuse accent for destructive with white fg */
+  --destructive-foreground: #ffffff;
+
+  /* UI tokens */
+  --border: #c5cac4;
+  --input: #c5cac4;
+  --ring: #5f674f;
+
+  /* Charts (mapped within palette range) */
+  --chart-1: #5f674f;
+  --chart-2: #979e8e;
+  --chart-3: #c5cac4;
+  --chart-4: #d9aeb8;
+  --chart-5: #ca8e90;
+
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+
+  /* Sidebar */
+  --sidebar: #ead1d5;
+  --sidebar-foreground: #5f674f;
+  --sidebar-primary: #5f674f;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #d9aeb8;
+  --sidebar-accent-foreground: #5f674f;
+  --sidebar-border: #c5cac4;
+  --sidebar-ring: #5f674f;
 }
 
 @theme inline {
   --font-playfair: "Playfair Display", serif;
   --font-lora: "Lora", serif;
 
-  --color-cream: #faf8f1;
-  --color-sand: #faeab1;
-  --color-teal: #34656d;
-  --color-ink: #334443;
+  /* Named colors used in components */
+  --color-cream: #ead1d5; /* background sections */
+  --color-sand: #d9aeb8; /* alternate section */
+  --color-teal: #5f674f; /* deep sage backgrounds */
+  --color-ink: #5f674f; /* primary text */
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);

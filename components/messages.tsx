@@ -25,6 +25,7 @@ interface MessageFormProps {
 function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
   const formRef = useRef<HTMLFormElement>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isFocused, setIsFocused] = useState(false)
   const { toast } = useToast()
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -71,42 +72,72 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
   }
 
   return (
-    <div className="relative w-full max-w-md mx-auto">
-      {/* Decorative background elements */}
-      <div className="absolute -top-2 -left-2 w-6 h-6 bg-teal/20 rounded-full blur-sm sm:w-8 sm:h-8 sm:-top-4 sm:-left-4"></div>
-      <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-teal/10 rounded-full blur-md sm:w-12 sm:h-12 sm:-bottom-4 sm:-right-4"></div>
+    <div className="relative w-full max-w-lg mx-auto px-4 sm:px-0">
+      {/* Enhanced decorative background elements */}
+      <div className="absolute -top-4 -left-4 w-8 h-8 bg-teal/20 rounded-full blur-sm animate-pulse sm:w-12 sm:h-12 sm:-top-6 sm:-left-6"></div>
+      <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-teal/10 rounded-full blur-md animate-pulse sm:w-16 sm:h-16 sm:-bottom-6 sm:-right-6"></div>
+      <div className="absolute top-1/2 -left-2 w-6 h-6 bg-teal/15 rounded-full blur-sm animate-pulse sm:w-8 sm:h-8 sm:-left-3"></div>
       
-      <Card className="relative w-full border border-teal/20 shadow-lg bg-white/95 backdrop-blur-sm hover:shadow-xl transition-all duration-500 group overflow-hidden">
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-teal/5 via-transparent to-teal/10 opacity-50"></div>
+      <Card className={`relative w-full border border-teal/20 shadow-lg bg-white/95 backdrop-blur-sm transition-all duration-500 group overflow-hidden ${
+        isFocused ? 'shadow-2xl scale-[1.02] border-teal/40' : 'hover:shadow-xl'
+      }`}>
+        {/* Enhanced gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-teal/5 via-transparent to-teal/10 opacity-60"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent"></div>
         
         <CardContent className="relative p-6 sm:p-8 lg:p-10">
-          <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+          {/* Header with icon */}
+          <div className="text-center mb-6 sm:mb-8">
+            <div className="relative inline-block mb-3 sm:mb-4">
+              <div className="absolute inset-0 bg-gradient-to-r from-teal/30 to-teal/20 rounded-full blur-lg scale-150"></div>
+              <div className="relative w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-teal to-teal/80 rounded-full flex items-center justify-center mx-auto shadow-lg">
+                <MessageCircle className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
+              </div>
+            </div>
+            <h3 className="text-lg sm:text-xl font-playfair font-bold text-ink mb-2">
+              Share Your Love
+            </h3>
+            <p className="text-xs sm:text-sm text-ink/70 font-lora">
+              Your message will be treasured forever
+            </p>
+          </div>
+
+          <form 
+            ref={formRef} 
+            onSubmit={handleSubmit} 
+            className="space-y-5 sm:space-y-6"
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+          >
             {/* Name Field */}
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-ink font-lora flex items-center gap-2">
-                <Heart className="h-3 w-3 sm:h-4 sm:w-4 text-teal" />
+            <div className="space-y-2 sm:space-y-3">
+              <label className="block text-sm sm:text-base font-medium text-ink font-lora flex items-center gap-2">
+                <div className="w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-br from-teal/20 to-teal/10 rounded-full flex items-center justify-center">
+                  <Heart className="h-3 w-3 sm:h-4 sm:w-4 text-teal" />
+                </div>
                 Your Name
               </label>
               <Input
                 name="name"
                 required
                 placeholder="Enter your name"
-                className="w-full border border-teal/30 focus:border-teal rounded-lg py-2.5 sm:py-3 px-3 sm:px-4 text-sm sm:text-base font-lora placeholder:text-ink/50 transition-all duration-200 hover:border-teal/50 focus:ring-2 focus:ring-teal/20 bg-white/80"
+                className="w-full border border-teal/30 focus:border-teal rounded-xl py-3 sm:py-4 px-4 sm:px-5 text-sm sm:text-base font-lora placeholder:text-ink/50 transition-all duration-300 hover:border-teal/50 focus:ring-4 focus:ring-teal/20 bg-white/90 shadow-sm hover:shadow-md focus:shadow-lg"
               />
             </div>
 
             {/* Message Field */}
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-ink font-lora flex items-center gap-2">
-                <MessageCircle className="h-3 w-3 sm:h-4 sm:w-4 text-teal" />
+            <div className="space-y-2 sm:space-y-3">
+              <label className="block text-sm sm:text-base font-medium text-ink font-lora flex items-center gap-2">
+                <div className="w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-br from-teal/20 to-teal/10 rounded-full flex items-center justify-center">
+                  <MessageCircle className="h-3 w-3 sm:h-4 sm:w-4 text-teal" />
+                </div>
                 Your Message
               </label>
               <Textarea
                 name="message"
                 required
                 placeholder="Share your love, memories, or well wishes..."
-                className="w-full border border-teal/30 focus:border-teal rounded-lg min-h-[80px] sm:min-h-[100px] text-sm sm:text-base font-lora placeholder:text-ink/50 transition-all duration-200 hover:border-teal/50 focus:ring-2 focus:ring-teal/20 resize-none bg-white/80 py-2.5 sm:py-3 px-3 sm:px-4"
+                className="w-full border border-teal/30 focus:border-teal rounded-xl min-h-[100px] sm:min-h-[120px] text-sm sm:text-base font-lora placeholder:text-ink/50 transition-all duration-300 hover:border-teal/50 focus:ring-4 focus:ring-teal/20 resize-none bg-white/90 shadow-sm hover:shadow-md focus:shadow-lg py-3 sm:py-4 px-4 sm:px-5"
               />
             </div>
 
@@ -114,19 +145,22 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-teal to-teal/90 hover:from-teal/90 hover:to-teal text-white py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg text-sm sm:text-base font-lora shadow-md transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full bg-gradient-to-r from-teal via-teal to-teal/90 hover:from-teal/90 hover:via-teal hover:to-teal text-white py-3 sm:py-4 px-6 sm:px-8 rounded-xl text-sm sm:text-base font-lora font-semibold shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none relative overflow-hidden group"
             >
+              {/* Button background animation */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              
               {isSubmitting ? (
-                <span className="flex items-center justify-center gap-2">
-                  <svg className="animate-spin h-3 w-3 sm:h-4 sm:w-4" viewBox="0 0 24 24">
+                <span className="flex items-center justify-center gap-2 relative z-10">
+                  <svg className="animate-spin h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                   </svg>
                   Sending...
                 </span>
               ) : (
-                <span className="flex items-center justify-center gap-2">
-                  <Send className="h-3 w-3 sm:h-4 sm:w-4" />
+                <span className="flex items-center justify-center gap-2 relative z-10">
+                  <Send className="h-4 w-4 sm:h-5 sm:w-5" />
                   Send Message
                 </span>
               )}
@@ -183,8 +217,10 @@ export function Messages() {
           
           <div className="max-w-4xl mx-auto">
             <div className="relative inline-block mb-4 sm:mb-6">
-              <div className="absolute inset-0 bg-gradient-to-r from-teal/20 to-teal/10 rounded-full blur-xl scale-150"></div>
-              <MessageCircle className="relative h-12 w-12 sm:h-16 sm:w-16 text-teal mx-auto" />
+              <div className="absolute inset-0 bg-gradient-to-r from-teal/20 to-teal/10 rounded-full blur-xl scale-150 animate-pulse"></div>
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-teal/20 to-teal/10 rounded-full flex items-center justify-center mx-auto shadow-lg">
+                <MessageCircle className="h-8 w-8 sm:h-10 sm:w-10 text-teal" />
+              </div>
             </div>
             
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-playfair font-bold text-ink mb-3 sm:mb-4">
@@ -198,17 +234,23 @@ export function Messages() {
         </div>
 
         {/* Form Section */}
-        <div className="flex justify-center px-4 mb-12 sm:mb-16">
+        <div className="flex justify-center mb-12 sm:mb-16 lg:mb-20">
           <MessageForm onMessageSent={fetchMessages} />
         </div>
 
         {/* Messages Display Section */}
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <h3 className="text-xl sm:text-2xl font-playfair font-bold text-ink mb-2">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-8 sm:mb-12">
+            <div className="relative inline-block mb-4 sm:mb-6">
+              <div className="absolute inset-0 bg-gradient-to-r from-teal/15 to-teal/5 rounded-full blur-lg scale-150"></div>
+              <div className="relative w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-teal/15 to-teal/5 rounded-full flex items-center justify-center mx-auto">
+                <Heart className="h-6 w-6 sm:h-8 sm:w-8 text-teal" />
+              </div>
+            </div>
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-playfair font-bold text-ink mb-2 sm:mb-3">
               Messages from Loved Ones
             </h3>
-            <p className="text-sm sm:text-base text-ink/70 font-lora">
+            <p className="text-sm sm:text-base lg:text-lg text-ink/70 font-lora max-w-2xl mx-auto px-4">
               Read the beautiful messages shared by family and friends
             </p>
           </div>
@@ -217,8 +259,8 @@ export function Messages() {
         </div>
 
         {/* Footer Message */}
-        <div className="mt-8 sm:mt-12 lg:mt-16 text-center px-4">
-          <div className="inline-flex items-center gap-2 sm:gap-3 text-teal/70 bg-white/60 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 sm:py-3 shadow-sm border border-teal/20">
+        <div className="mt-12 sm:mt-16 lg:mt-20 text-center px-4">
+          <div className="inline-flex items-center gap-2 sm:gap-3 text-teal/70 bg-white/60 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 sm:py-3 shadow-sm border border-teal/20 hover:bg-white/80 hover:shadow-md transition-all duration-300">
             <Heart className="h-3 w-3 sm:h-4 sm:w-4 fill-current" />
             <span className="text-xs sm:text-sm font-lora font-medium">Messages are sent directly to the couple</span>
             <Heart className="h-3 w-3 sm:h-4 sm:w-4 fill-current" />

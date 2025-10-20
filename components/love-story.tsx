@@ -5,7 +5,7 @@ import Image from "next/image"
 import { Section } from "@/components/section"
 import { Heading } from "@/components/heading"
 import { siteContent } from "@/lib/content"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { Play, Pause, Heart, Sparkles } from "lucide-react"
 
 export function LoveStory() {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -84,12 +84,33 @@ export function LoveStory() {
 
   return (
     <Section id="love-story" bgColor="cream">
-      <Heading level="h2">{siteContent.loveStory.title}</Heading>
+      {/* Enhanced Header with Elegant Design */}
+      <div className="text-center mb-12 md:mb-16 relative">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="w-32 h-32 bg-gradient-to-br from-teal/10 to-pink/10 rounded-full blur-3xl"></div>
+        </div>
+        <div className="relative z-10">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <Sparkles className="w-5 h-5 text-teal animate-pulse" />
+            <Heart className="w-7 h-7 text-teal animate-pulse" />
+            <Heading level="h2" className="text-4xl md:text-5xl lg:text-6xl font-serif bg-gradient-to-r from-teal via-pink to-teal bg-clip-text text-transparent">
+              {siteContent.loveStory.title}
+            </Heading>
+            <Heart className="w-7 h-7 text-teal animate-pulse" />
+            <Sparkles className="w-5 h-5 text-teal animate-pulse" />
+          </div>
+          <div className="flex items-center justify-center gap-4">
+            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent to-teal rounded-full"></div>
+            <div className="w-2 h-2 bg-teal rounded-full animate-pulse"></div>
+            <div className="w-16 h-0.5 bg-gradient-to-l from-transparent to-teal rounded-full"></div>
+          </div>
+        </div>
+      </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* Image Carousel */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        {/* Enhanced Image Carousel */}
         <div
-          className="relative"
+          className="relative order-1 lg:order-1 group"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
           onKeyDown={(e) => {
@@ -106,15 +127,21 @@ export function LoveStory() {
           aria-roledescription="carousel"
           aria-label="Our love story photos"
         >
-          <div className="relative w-full aspect-square rounded-lg overflow-hidden shadow-soft bg-sand">
+          {/* Main Image Container with Enhanced Styling */}
+          <div className="relative w-full aspect-square md:aspect-[4/3] lg:aspect-square rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-sand via-cream to-white group-hover:shadow-3xl transition-all duration-500">
+            {/* Decorative Border */}
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-teal/20 via-transparent to-pink/20 p-1">
+              <div className="w-full h-full rounded-3xl bg-white"></div>
+            </div>
+            
             {slides.map((slide, index) => (
               <Image
                 key={slide.id}
                 src={`/${slide.alt}?height=500&width=500&query=couple+photo+${slide.id}`}
                 alt={slide.alt}
                 fill
-                className={`object-cover transition-opacity duration-700 ease-in-out ${
-                  index === currentSlide ? "opacity-100" : "opacity-0"
+                className={`object-cover transition-all duration-1200 ease-out ${
+                  index === currentSlide ? "opacity-100 scale-100" : "opacity-0 scale-110"
                 }`}
                 priority={index === 0}
                 onTouchStart={(e) => {
@@ -143,71 +170,82 @@ export function LoveStory() {
               />
             ))}
 
-            {/* Autoplay progress bar */}
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/40">
+            {/* Enhanced Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-teal/5 via-transparent to-pink/5 pointer-events-none" />
+
+            {/* Elegant Progress Bar */}
+            <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-white/20 rounded-full overflow-hidden backdrop-blur-sm">
               <div
-                className="h-full bg-teal transition-[width] duration-100 ease-linear"
+                className="h-full bg-gradient-to-r from-teal via-pink to-teal transition-[width] duration-100 ease-linear rounded-full shadow-lg"
                 style={{ width: `${progress}%` }}
                 aria-hidden="true"
               />
             </div>
-          </div>
 
-          {/* Carousel Controls */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-teal p-2 rounded-full transition-colors z-10"
-            aria-label="Previous photo"
-          >
-            <ChevronLeft size={24} />
-          </button>
-          <button
-            onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-teal p-2 rounded-full transition-colors z-10"
-            aria-label="Next photo"
-          >
-            <ChevronRight size={24} />
-          </button>
+            {/* Enhanced Slide Counter */}
+            <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-md text-teal px-4 py-2 rounded-full text-sm font-semibold shadow-lg border border-white/20">
+              <span className="text-xs opacity-70">Photo</span> {currentSlide + 1} / {slides.length}
+            </div>
 
-          {/* Pause/Play */}
-          <button
-            onClick={() => setIsPaused((p) => !p)}
-            className="absolute right-4 bottom-4 bg-white/80 hover:bg-white text-teal px-3 py-1 rounded-full text-sm z-10"
-            aria-pressed={isPaused}
-            aria-label={isPaused ? "Resume slideshow" : "Pause slideshow"}
-          >
-            {isPaused ? "Play" : "Pause"}
-          </button>
+            {/* Elegant Pause/Play Button */}
+            <button
+              onClick={() => setIsPaused((p) => !p)}
+              className="absolute left-6 bottom-6 bg-white/95 backdrop-blur-md hover:bg-white text-teal p-3 rounded-full transition-all duration-300 z-10 shadow-lg hover:shadow-xl hover:scale-110 border border-white/20 group"
+              aria-pressed={isPaused}
+              aria-label={isPaused ? "Resume slideshow" : "Pause slideshow"}
+            >
+              <div className="group-hover:scale-110 transition-transform duration-200">
+                {isPaused ? <Play size={18} /> : <Pause size={18} />}
+              </div>
+            </button>
 
-          {/* Slide indicators */}
-          <div className="flex justify-center gap-2 mt-4" role="tablist" aria-label="Love story photos">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-2.5 h-2.5 rounded-full transition-colors outline-none ring-0 focus:ring-2 focus:ring-teal/50 ${
-                  index === currentSlide ? "bg-teal" : "bg-teal/30 hover:bg-teal/50"
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-                aria-current={index === currentSlide ? "true" : undefined}
-                role="tab"
-              />
-            ))}
+            {/* Swipe Hint with Better Styling */}
+            <div className="md:hidden absolute bottom-6 right-6 bg-white/95 backdrop-blur-md text-teal px-3 py-2 rounded-full text-xs font-medium shadow-lg border border-white/20">
+              <div className="flex items-center gap-1">
+                <span>←</span>
+                <span>Swipe</span>
+                <span>→</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Story Text */}
-        <div>
+        {/* Enhanced Story Text */}
+        <div className="order-2 lg:order-2">
           <div className="prose prose-lg max-w-none">
             {siteContent.loveStory.content.split("\n\n").map((paragraph, index) => (
-              <p key={index} className="text-ink/80 font-lora leading-relaxed mb-6 whitespace-pre-wrap">
+              <p key={index} className="text-ink/85 font-lora leading-relaxed mb-8 whitespace-pre-wrap text-lg md:text-xl">
                 {paragraph}
               </p>
             ))}
-            {/* Current slide caption */}
-            <div className="mt-4 text-ink/70">
-              <p className="font-lora text-base">{slides[currentSlide].caption}</p>
-              <p className="text-sm">{slides[currentSlide].date}</p>
+            
+            {/* Enhanced Caption Card */}
+            <div className="mt-10 p-8 bg-gradient-to-br from-white/60 via-cream/40 to-white/60 rounded-3xl border border-white/30 backdrop-blur-md shadow-xl relative overflow-hidden">
+              {/* Decorative Elements */}
+              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-teal/10 to-pink/10 rounded-full blur-2xl"></div>
+              <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-pink/10 to-teal/10 rounded-full blur-2xl"></div>
+              
+              <div className="relative z-10">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-teal to-pink rounded-full flex items-center justify-center">
+                    <Heart className="w-4 h-4 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="font-lora text-lg md:text-xl text-ink/95 leading-relaxed italic">
+                      "{slides[currentSlide].caption}"
+                    </p>
+                    {slides[currentSlide].date && (
+                      <div className="mt-4 flex items-center gap-2">
+                        <div className="w-1 h-1 bg-teal rounded-full"></div>
+                        <p className="text-sm text-ink/70 font-medium">
+                          {slides[currentSlide].date}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

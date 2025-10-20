@@ -60,43 +60,43 @@ export function Details() {
       </div>
 
       {/* Ceremony and Reception */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 lg:mb-16">
         {/* Ceremony */}
         <div 
-          className="bg-white rounded-xl p-4 sm:p-6 lg:p-8 shadow-lg border border-sand/20 hover:shadow-xl transition-all duration-500 hover:scale-[1.01] lg:hover:scale-[1.02] hover:-translate-y-1"
+          className="bg-white rounded-xl p-3 sm:p-4 md:p-6 lg:p-8 shadow-lg border border-sand/20 hover:shadow-xl transition-all duration-500 hover:scale-[1.01] lg:hover:scale-[1.02] hover:-translate-y-1"
           onMouseEnter={() => setHoveredCard('ceremony')}
           onMouseLeave={() => setHoveredCard(null)}
         >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 gap-4">
-            <div className="flex items-center gap-3">
-              <div className={`bg-teal/10 p-2 sm:p-3 rounded-full transition-all duration-300 ${hoveredCard === 'ceremony' ? 'bg-teal/20 scale-110' : ''}`}>
-                <Heart className="text-teal w-5 h-5 sm:w-6 sm:h-6" />
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 sm:mb-4 md:mb-6 gap-3 sm:gap-4">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className={`bg-teal/10 p-1.5 sm:p-2 md:p-3 rounded-full transition-all duration-300 ${hoveredCard === 'ceremony' ? 'bg-teal/20 scale-110' : ''}`}>
+                <Heart className="text-teal w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-playfair font-bold text-ink">Ceremony</h3>
+              <h3 className="text-lg sm:text-xl md:text-2xl font-playfair font-bold text-ink">Ceremony</h3>
             </div>
-            <div className="flex items-center gap-2 self-end sm:self-auto">
+            <div className="flex items-center gap-1.5 sm:gap-2 self-end sm:self-auto">
               <button
                 onClick={() => openInMaps(ceremonyMapsLink)}
-                className="p-2 text-teal/70 hover:text-teal hover:bg-teal/10 rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
+                className="p-1.5 sm:p-2 text-teal/70 hover:text-teal hover:bg-teal/10 rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
                 title="Open in Google Maps"
               >
-                <Navigation className="w-4 h-4 sm:w-5 sm:h-5" />
+                <Navigation className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />
               </button>
               <button
                 onClick={() => copyToClipboard(ceremonyData, 'ceremony')}
-                className="p-2 text-teal/70 hover:text-teal hover:bg-teal/10 rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
+                className="p-1.5 sm:p-2 text-teal/70 hover:text-teal hover:bg-teal/10 rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
                 title="Copy ceremony details"
               >
-                {copiedItems.has('ceremony') ? <Check className="w-4 h-4 sm:w-5 sm:h-5" /> : <Copy className="w-4 h-4 sm:w-5 sm:h-5" />}
+                {copiedItems.has('ceremony') ? <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" /> : <Copy className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />}
               </button>
             </div>
           </div>
           
-          <div className="space-y-3 mb-4 sm:mb-6">
-            <p className="text-base sm:text-lg font-lora text-ink font-semibold">{siteContent.details.ceremony.venue}</p>
-            <p className="text-sm sm:text-base text-ink/70 font-lora leading-relaxed">{siteContent.details.ceremony.location}</p>
-            <div className="flex items-center gap-2 text-sm sm:text-base text-ink/70 font-lora">
-              <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-teal flex-shrink-0" />
+          <div className="space-y-2 sm:space-y-3 mb-3 sm:mb-4 md:mb-6">
+            <p className="text-sm sm:text-base md:text-lg font-lora text-ink font-semibold">{siteContent.details.ceremony.venue}</p>
+            <p className="text-xs sm:text-sm md:text-base text-ink/70 font-lora leading-relaxed">{siteContent.details.ceremony.location}</p>
+            <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base text-ink/70 font-lora">
+              <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-teal flex-shrink-0" />
               <span>
                 {siteContent.details.ceremony.date} at {siteContent.details.ceremony.time}
               </span>
@@ -104,9 +104,9 @@ export function Details() {
           </div>
 
           {/* Ceremony Image */}
-          <div className="mb-4 sm:mb-6">
+          <div className="mb-3 sm:mb-4 md:mb-6">
             <div 
-              className="relative w-full h-40 sm:h-48 rounded-lg overflow-hidden shadow-md cursor-pointer group transition-all duration-300 hover:shadow-xl hover:scale-[1.01] sm:hover:scale-[1.02] active:scale-[0.99]"
+              className="relative w-full h-32 sm:h-40 md:h-48 rounded-lg overflow-hidden shadow-md cursor-pointer group transition-all duration-300 hover:shadow-xl hover:scale-[1.01] sm:hover:scale-[1.02] active:scale-[0.99]"
               onClick={() => setShowImageModal('ceremony')}
             >
               <Image
@@ -118,7 +118,7 @@ export function Details() {
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Camera className="text-white w-6 h-6 sm:w-8 sm:h-8" />
+                  <Camera className="text-white w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
                 </div>
               </div>
             </div>
@@ -126,10 +126,10 @@ export function Details() {
 
           {/* QR Code */}
           <div className="flex justify-center">
-            <div className="bg-white p-3 sm:p-4 rounded-lg border-2 border-sand/30">
+            <div className="bg-white p-2 sm:p-3 md:p-4 rounded-lg border-2 border-sand/30">
               <QRCode
                 value={ceremonyData}
-                size={100}
+                size={80}
                 style={{ height: "auto", maxWidth: "100%", width: "100%" }}
               />
               <p className="text-xs text-ink/50 text-center mt-1 sm:mt-2 font-lora">Scan for details</p>
@@ -139,44 +139,44 @@ export function Details() {
 
         {/* Reception */}
         <div 
-          className="bg-white rounded-xl p-4 sm:p-6 lg:p-8 shadow-lg border border-sand/20 hover:shadow-xl transition-all duration-500 hover:scale-[1.01] lg:hover:scale-[1.02] hover:-translate-y-1"
+          className="bg-white rounded-xl p-3 sm:p-4 md:p-6 lg:p-8 shadow-lg border border-sand/20 hover:shadow-xl transition-all duration-500 hover:scale-[1.01] lg:hover:scale-[1.02] hover:-translate-y-1"
           onMouseEnter={() => setHoveredCard('reception')}
           onMouseLeave={() => setHoveredCard(null)}
         >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 gap-4">
-            <div className="flex items-center gap-3">
-              <div className={`bg-teal/10 p-2 sm:p-3 rounded-full transition-all duration-300 ${hoveredCard === 'reception' ? 'bg-teal/20 scale-110' : ''}`}>
-                <Utensils className="text-teal w-5 h-5 sm:w-6 sm:h-6" />
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 sm:mb-4 md:mb-6 gap-3 sm:gap-4">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className={`bg-teal/10 p-1.5 sm:p-2 md:p-3 rounded-full transition-all duration-300 ${hoveredCard === 'reception' ? 'bg-teal/20 scale-110' : ''}`}>
+                <Utensils className="text-teal w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-playfair font-bold text-ink">Reception</h3>
+              <h3 className="text-lg sm:text-xl md:text-2xl font-playfair font-bold text-ink">Reception</h3>
             </div>
-            <div className="flex items-center gap-2 self-end sm:self-auto">
+            <div className="flex items-center gap-1.5 sm:gap-2 self-end sm:self-auto">
               <button
                 onClick={() => openInMaps(receptionMapsLink)}
-                className="p-2 text-teal/70 hover:text-teal hover:bg-teal/10 rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
+                className="p-1.5 sm:p-2 text-teal/70 hover:text-teal hover:bg-teal/10 rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
                 title="Open in Google Maps"
               >
-                <Navigation className="w-4 h-4 sm:w-5 sm:h-5" />
+                <Navigation className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />
               </button>
               <button
                 onClick={() => copyToClipboard(receptionData, 'reception')}
-                className="p-2 text-teal/70 hover:text-teal hover:bg-teal/10 rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
+                className="p-1.5 sm:p-2 text-teal/70 hover:text-teal hover:bg-teal/10 rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
                 title="Copy reception details"
               >
-                {copiedItems.has('reception') ? <Check className="w-4 h-4 sm:w-5 sm:h-5" /> : <Copy className="w-4 h-4 sm:w-5 sm:h-5" />}
+                {copiedItems.has('reception') ? <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" /> : <Copy className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />}
               </button>
             </div>
           </div>
           
-          <div className="space-y-3 mb-4 sm:mb-6">
-            <p className="text-base sm:text-lg font-lora text-ink font-semibold">{siteContent.details.reception.venue}</p>
-            <p className="text-sm sm:text-base text-ink/70 font-lora leading-relaxed">{siteContent.details.reception.location}</p>
+          <div className="space-y-2 sm:space-y-3 mb-3 sm:mb-4 md:mb-6">
+            <p className="text-sm sm:text-base md:text-lg font-lora text-ink font-semibold">{siteContent.details.reception.venue}</p>
+            <p className="text-xs sm:text-sm md:text-base text-ink/70 font-lora leading-relaxed">{siteContent.details.reception.location}</p>
           </div>
 
           {/* Reception Image */}
-          <div className="mb-4 sm:mb-6">
+          <div className="mb-3 sm:mb-4 md:mb-6">
             <div 
-              className="relative w-full h-40 sm:h-48 rounded-lg overflow-hidden shadow-md cursor-pointer group transition-all duration-300 hover:shadow-xl hover:scale-[1.01] sm:hover:scale-[1.02] active:scale-[0.99]"
+              className="relative w-full h-32 sm:h-40 md:h-48 rounded-lg overflow-hidden shadow-md cursor-pointer group transition-all duration-300 hover:shadow-xl hover:scale-[1.01] sm:hover:scale-[1.02] active:scale-[0.99]"
               onClick={() => setShowImageModal('reception')}
             >
               <Image
@@ -188,7 +188,7 @@ export function Details() {
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Camera className="text-white w-6 h-6 sm:w-8 sm:h-8" />
+                  <Camera className="text-white w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
                 </div>
               </div>
             </div>
@@ -196,10 +196,10 @@ export function Details() {
 
           {/* QR Code */}
           <div className="flex justify-center">
-            <div className="bg-white p-3 sm:p-4 rounded-lg border-2 border-sand/30">
+            <div className="bg-white p-2 sm:p-3 md:p-4 rounded-lg border-2 border-sand/30">
               <QRCode
                 value={receptionData}
-                size={100}
+                size={80}
                 style={{ height: "auto", maxWidth: "100%", width: "100%" }}
               />
               <p className="text-xs text-ink/50 text-center mt-1 sm:mt-2 font-lora">Scan for details</p>
@@ -209,23 +209,23 @@ export function Details() {
       </div>
 
       {/* Additional Information */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8 md:mb-12">
         {/* Dress Code */}
-        <div className="bg-gradient-to-br from-sand/20 to-sand/40 rounded-xl p-4 sm:p-6 border border-sand/30 hover:shadow-lg hover:scale-[1.01] sm:hover:scale-[1.02] transition-all duration-300 hover:-translate-y-1 active:scale-[0.99]">
-          <div className="flex items-center gap-2 mb-3 sm:mb-4">
-            <div className="bg-teal/10 p-2 rounded-full">
-              <Shirt className="text-teal w-4 h-4 sm:w-5 sm:h-5" />
+        <div className="bg-gradient-to-br from-sand/20 to-sand/40 rounded-xl p-3 sm:p-4 md:p-6 border border-sand/30 hover:shadow-lg hover:scale-[1.01] sm:hover:scale-[1.02] transition-all duration-300 hover:-translate-y-1 active:scale-[0.99]">
+          <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3 md:mb-4">
+            <div className="bg-teal/10 p-1.5 sm:p-2 rounded-full">
+              <Shirt className="text-teal w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />
             </div>
-            <h4 className="font-playfair font-bold text-base sm:text-lg text-ink">Dress Code</h4>
+            <h4 className="font-playfair font-bold text-sm sm:text-base md:text-lg text-ink">Dress Code</h4>
           </div>
-          <div className="space-y-2 sm:space-y-3 text-sm text-ink/70 font-lora">
-            <div className="bg-white/50 rounded-lg p-2 sm:p-3">
-              <p className="font-semibold text-ink mb-1 text-xs sm:text-sm">Sponsors:</p>
+          <div className="space-y-1.5 sm:space-y-2 md:space-y-3 text-xs sm:text-sm text-ink/70 font-lora">
+            <div className="bg-white/50 rounded-lg p-1.5 sm:p-2 md:p-3">
+              <p className="font-semibold text-ink mb-0.5 sm:mb-1 text-xs sm:text-sm">Sponsors:</p>
               <p className="text-xs">Ninong: {siteContent.details.dressCode.sponsors.groom}</p>
               <p className="text-xs">Ninang: {siteContent.details.dressCode.sponsors.bride}</p>
             </div>
-            <div className="bg-white/50 rounded-lg p-2 sm:p-3">
-              <p className="font-semibold text-ink mb-1 text-xs sm:text-sm">Guests:</p>
+            <div className="bg-white/50 rounded-lg p-1.5 sm:p-2 md:p-3">
+              <p className="font-semibold text-ink mb-0.5 sm:mb-1 text-xs sm:text-sm">Guests:</p>
               <p className="text-xs">Gentlemen: {siteContent.details.dressCode.guests.gentlemen}</p>
               <p className="text-xs">Ladies: {siteContent.details.dressCode.guests.ladies}</p>
             </div>
@@ -233,19 +233,19 @@ export function Details() {
         </div>
 
         {/* Travel Tips */}
-        <div className="bg-gradient-to-br from-sand/20 to-sand/40 rounded-xl p-4 sm:p-6 border border-sand/30 hover:shadow-lg hover:scale-[1.01] sm:hover:scale-[1.02] transition-all duration-300 hover:-translate-y-1 active:scale-[0.99]">
-          <div className="flex items-center gap-2 mb-3 sm:mb-4">
-            <div className="bg-teal/10 p-2 rounded-full">
-              <Car className="text-teal w-4 h-4 sm:w-5 sm:h-5" />
+        <div className="bg-gradient-to-br from-sand/20 to-sand/40 rounded-xl p-3 sm:p-4 md:p-6 border border-sand/30 hover:shadow-lg hover:scale-[1.01] sm:hover:scale-[1.02] transition-all duration-300 hover:-translate-y-1 active:scale-[0.99]">
+          <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3 md:mb-4">
+            <div className="bg-teal/10 p-1.5 sm:p-2 rounded-full">
+              <Car className="text-teal w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />
             </div>
-            <h4 className="font-playfair font-bold text-base sm:text-lg text-ink">Travel & Parking</h4>
+            <h4 className="font-playfair font-bold text-sm sm:text-base md:text-lg text-ink">Travel & Parking</h4>
           </div>
-          <div className="space-y-2 sm:space-y-3">
+          <div className="space-y-1.5 sm:space-y-2 md:space-y-3">
             <p className="text-xs sm:text-sm text-ink/70 font-lora leading-relaxed">
               Ample parking is available at both venues. We recommend arriving 15-20 minutes early to allow time for
               parking and seating.
             </p>
-            <div className="bg-white/50 rounded-lg p-2 sm:p-3">
+            <div className="bg-white/50 rounded-lg p-1.5 sm:p-2 md:p-3">
               <p className="text-xs text-ink/60 font-lora">
                 💡 Tip: Book transportation in advance for a stress-free day
               </p>
@@ -254,25 +254,25 @@ export function Details() {
         </div>
 
         {/* RSVP Contact */}
-        <div className="bg-gradient-to-br from-sand/20 to-sand/40 rounded-xl p-4 sm:p-6 border border-sand/30 hover:shadow-lg hover:scale-[1.01] sm:hover:scale-[1.02] transition-all duration-300 hover:-translate-y-1 active:scale-[0.99] sm:col-span-2 lg:col-span-1">
-          <div className="flex items-center justify-between mb-3 sm:mb-4">
-            <div className="flex items-center gap-2">
-              <div className="bg-teal/10 p-2 rounded-full">
-                <Phone className="text-teal w-4 h-4 sm:w-5 sm:h-5" />
+        <div className="bg-gradient-to-br from-sand/20 to-sand/40 rounded-xl p-3 sm:p-4 md:p-6 border border-sand/30 hover:shadow-lg hover:scale-[1.01] sm:hover:scale-[1.02] transition-all duration-300 hover:-translate-y-1 active:scale-[0.99] sm:col-span-2 lg:col-span-1">
+          <div className="flex items-center justify-between mb-2 sm:mb-3 md:mb-4">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <div className="bg-teal/10 p-1.5 sm:p-2 rounded-full">
+                <Phone className="text-teal w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />
               </div>
-              <h4 className="font-playfair font-bold text-base sm:text-lg text-ink">RSVP Info</h4>
+              <h4 className="font-playfair font-bold text-sm sm:text-base md:text-lg text-ink">RSVP Info</h4>
             </div>
             <button
               onClick={() => copyToClipboard(rsvpData, 'rsvp')}
-              className="p-2 text-teal/70 hover:text-teal hover:bg-teal/10 rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
+              className="p-1.5 sm:p-2 text-teal/70 hover:text-teal hover:bg-teal/10 rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
               title="Copy RSVP details"
             >
-              {copiedItems.has('rsvp') ? <Check size={16} /> : <Copy size={16} />}
+              {copiedItems.has('rsvp') ? <Check size={14} className="sm:w-4 sm:h-4" /> : <Copy size={14} className="sm:w-4 sm:h-4" />}
             </button>
           </div>
-          <div className="space-y-2 sm:space-y-3 mb-3 sm:mb-4">
-            <div className="bg-white/50 rounded-lg p-2 sm:p-3">
-              <div className="space-y-1 text-xs sm:text-sm text-ink/70 font-lora">
+          <div className="space-y-1.5 sm:space-y-2 md:space-y-3 mb-2 sm:mb-3 md:mb-4">
+            <div className="bg-white/50 rounded-lg p-1.5 sm:p-2 md:p-3">
+              <div className="space-y-0.5 sm:space-y-1 text-xs sm:text-sm text-ink/70 font-lora">
                 <p><strong className="text-ink">Deadline:</strong> {siteContent.details.rsvp.deadline}</p>
                 <p><strong className="text-ink">Contact:</strong> {siteContent.details.rsvp.contact}</p>
                 <p><strong className="text-ink">Phone:</strong> {siteContent.details.rsvp.phone}</p>
@@ -282,10 +282,10 @@ export function Details() {
           
           {/* QR Code for RSVP */}
           <div className="flex justify-center">
-            <div className="bg-white p-2 sm:p-3 rounded-lg border border-sand/40">
+            <div className="bg-white p-1.5 sm:p-2 md:p-3 rounded-lg border border-sand/40">
               <QRCode
                 value={rsvpData}
-                size={60}
+                size={50}
                 style={{ height: "auto", maxWidth: "100%", width: "100%" }}
               />
             </div>
@@ -293,32 +293,11 @@ export function Details() {
         </div>
       </div>
 
-      {/* Interactive Map Section */}
-      <div className="mt-8 sm:mt-12">
-        <div className="text-center mb-6 sm:mb-8">
-          <h3 className="text-xl sm:text-2xl font-playfair font-bold text-ink mb-2">Find Us in Tagaytay</h3>
-          <p className="text-sm sm:text-base text-ink/70 font-lora">Beautiful venues in Tagaytay City</p>
-        </div>
-        
-        <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-sand/20">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3863.8234567890123!2d120.95!3d14.12!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sTagaytay%20City!5e0!3m2!1sen!2sph!4v1234567890"
-            width="100%"
-            height="300"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Wedding venues in Tagaytay City"
-            className="w-full"
-          />
-        </div>
-      </div>
 
       {/* Enhanced Image Modal */}
       {showImageModal && (
         <div 
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4"
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-1 sm:p-2 md:p-4"
           onClick={() => setShowImageModal(null)}
         >
           <div 
@@ -327,11 +306,11 @@ export function Details() {
           >
             <button
               onClick={() => setShowImageModal(null)}
-              className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 bg-white/90 hover:bg-white text-ink p-2 rounded-full shadow-lg transition-colors active:scale-95"
+              className="absolute top-1 right-1 sm:top-2 sm:right-2 md:top-4 md:right-4 z-10 bg-white/90 hover:bg-white text-ink p-1.5 sm:p-2 rounded-full shadow-lg transition-colors active:scale-95"
             >
-              <X className="w-5 h-5 sm:w-6 sm:h-6" />
+              <X className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
             </button>
-            <div className="relative w-full h-[60vh] sm:h-[70vh]">
+            <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh]">
               <Image
                 src={showImageModal === 'ceremony' ? "/EvenDetails/AltaDChapel.png" : "/EvenDetails/AlteDHotel.png"}
                 alt={showImageModal === 'ceremony' ? "Capilla De San Antonio De Padua - Ceremony Venue" : "Alta D' Tagaytay Hotel - Reception Venue"}
@@ -341,18 +320,18 @@ export function Details() {
                 priority
               />
             </div>
-            <div className="p-4 sm:p-6 bg-white">
-              <h3 className="text-lg sm:text-xl font-playfair font-bold text-ink mb-2">
+            <div className="p-3 sm:p-4 md:p-6 bg-white">
+              <h3 className="text-base sm:text-lg md:text-xl font-playfair font-bold text-ink mb-1 sm:mb-2">
                 {showImageModal === 'ceremony' ? siteContent.details.ceremony.venue : siteContent.details.reception.venue}
               </h3>
-              <p className="text-sm sm:text-base text-ink/70 font-lora">
+              <p className="text-xs sm:text-sm md:text-base text-ink/70 font-lora mb-2 sm:mb-3">
                 {showImageModal === 'ceremony' ? siteContent.details.ceremony.location : siteContent.details.reception.location}
               </p>
               <button
                 onClick={() => openInMaps(showImageModal === 'ceremony' ? ceremonyMapsLink : receptionMapsLink)}
-                className="mt-3 flex items-center gap-2 text-teal hover:text-teal/80 font-lora text-sm transition-colors"
+                className="flex items-center gap-1 sm:gap-2 text-teal hover:text-teal/80 font-lora text-xs sm:text-sm transition-colors"
               >
-                <Navigation size={16} />
+                <Navigation size={14} className="sm:w-4 sm:h-4" />
                 Open in Maps
               </button>
             </div>

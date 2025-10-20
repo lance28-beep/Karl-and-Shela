@@ -12,9 +12,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       "font-lora font-semibold rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
 
     const variants = {
-      primary: "bg-teal text-cream hover:bg-ink focus:ring-teal",
-      secondary: "bg-sand text-ink hover:bg-teal hover:text-cream focus:ring-sand",
-      outline: "border-2 border-teal text-teal hover:bg-teal hover:text-cream focus:ring-teal",
+      primary: "bg-primary text-primary-foreground hover:opacity-90 focus:ring-primary",
+      secondary: "bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground focus:ring-secondary",
+      outline: "border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground focus:ring-primary",
     }
 
     const sizes = {

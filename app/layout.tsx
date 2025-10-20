@@ -135,7 +135,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="theme-color" content="#34656D" />
+        <meta name="theme-color" content="#5f674f" />
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={`${playfair.variable} ${lora.variable} font-lora antialiased bg-cream text-ink`}>

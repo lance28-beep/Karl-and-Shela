@@ -747,10 +747,42 @@ export default function DomeGallery({
       cursor: pointer;
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
-      transition: transform 300ms;
+      transition: transform 300ms ease-out, box-shadow 300ms ease-out, filter 300ms ease-out;
       pointer-events: auto;
       -webkit-transform: translateZ(0);
       transform: translateZ(0);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .item__image:hover {
+      transform: translateZ(0) scale(1.05);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      filter: brightness(1.1) contrast(1.05);
+    }
+    
+    .item__image:active {
+      transform: translateZ(0) scale(0.98);
+      transition: transform 100ms ease-out;
+    }
+    
+    .item__image img {
+      transition: transform 300ms ease-out;
+    }
+    
+    .item__image:hover img {
+      transform: scale(1.02);
+    }
+    
+    .item__image:focus {
+      outline: 2px solid #ec4899;
+      outline-offset: 2px;
+      transform: translateZ(0) scale(1.05);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+    
+    .item__image:focus-visible {
+      outline: 2px solid #ec4899;
+      outline-offset: 2px;
     }
     .item__image--reference {
       position: absolute;
@@ -810,7 +842,7 @@ export default function DomeGallery({
                   }
                 >
                   <div
-                    className="item__image absolute block overflow-hidden cursor-pointer bg-gray-200 transition-transform duration-300"
+                    className="item__image absolute block overflow-hidden cursor-pointer bg-gray-200 transition-all duration-300 group"
                     role="button"
                     tabIndex={0}
                     aria-label={it.alt || "Open image"}
@@ -821,6 +853,12 @@ export default function DomeGallery({
                     onTouchEnd={(e) => {
                       if (performance.now() - lastDragEndAt.current < 80) return
                       openItemFromElement(e.currentTarget)
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault()
+                        openItemFromElement(e.currentTarget as HTMLElement)
+                      }
                     }}
                     style={{
                       inset: "10px",
@@ -838,6 +876,14 @@ export default function DomeGallery({
                         filter: `var(--image-filter, ${grayscale ? "grayscale(1)" : "none"})`,
                       }}
                     />
+                    {/* Focus indicator overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                    {/* Click hint */}
+                    <div className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                      <svg className="w-3 h-3 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                      </svg>
+                    </div>
                   </div>
                 </div>
               ))}

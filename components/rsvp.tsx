@@ -60,39 +60,39 @@ export function RSVP({ onSuccess }: RSVPFormProps) {
 
   return (
     <Section id="rsvp" bgColor="sand">
-      <div className="text-center mb-8">
+      <div className="text-center mb-6 sm:mb-8 px-4 sm:px-0">
         <Heading level="h2">RSVP</Heading>
-        <div className="mt-4 bg-gradient-to-r from-teal/10 to-sand/20 rounded-xl p-4 sm:p-6 border border-teal/20 max-w-2xl mx-auto">
-          <div className="flex items-center justify-center gap-3 mb-3">
-            <div className="bg-teal/20 p-2 rounded-full">
-              <Heart className="text-teal" size={18} />
+        <div className="mt-4 bg-gradient-to-r from-teal/10 to-sand/20 rounded-xl p-3 sm:p-4 md:p-6 border border-teal/20 max-w-2xl mx-auto">
+          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3">
+            <div className="bg-teal/20 p-1.5 sm:p-2 rounded-full">
+              <Heart className="text-teal" size={16} />
             </div>
-            <h3 className="text-lg sm:text-xl font-playfair font-bold text-ink">We reserved seats for you</h3>
+            <h3 className="text-base sm:text-lg md:text-xl font-playfair font-bold text-ink">We reserved seats for you</h3>
           </div>
-          <p className="text-sm sm:text-base text-ink/70 font-lora">
+          <p className="text-xs sm:text-sm md:text-base text-ink/70 font-lora">
             The favor of your reply requested on or before{" "}
             <span className="font-semibold text-ink">{siteContent.details.rsvp.deadline}</span>
           </p>
         </div>
       </div>
 
-      <div className="max-w-2xl mx-auto">
-        <div className="bg-white rounded-xl p-6 sm:p-8 shadow-lg border border-sand/20">
-          <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-teal font-lora tracking-wide">
+      <div className="max-w-2xl mx-auto px-4 sm:px-0">
+        <div className="bg-white rounded-xl p-4 sm:p-6 md:p-8 shadow-lg border border-sand/20">
+          <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+            <div className="space-y-1.5 sm:space-y-2">
+              <label className="block text-xs sm:text-sm font-medium text-teal font-lora tracking-wide">
                 Full Name *
               </label>
               <input
                 name="name"
                 required
                 placeholder="Enter your full name"
-                className="w-full px-4 py-3 border-2 border-teal/30 focus:border-teal rounded-xl text-lg font-lora placeholder:text-ink/40 transition-all duration-200 hover:border-teal/50 focus:ring-2 focus:ring-teal/20"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-teal/30 focus:border-teal rounded-lg sm:rounded-xl text-base sm:text-lg font-lora placeholder:text-ink/40 transition-all duration-200 hover:border-teal/50 focus:ring-2 focus:ring-teal/20"
               />
             </div>
 
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-teal font-lora tracking-wide">
+            <div className="space-y-1.5 sm:space-y-2">
+              <label className="block text-xs sm:text-sm font-medium text-teal font-lora tracking-wide">
                 Email Address *
               </label>
               <input
@@ -100,18 +100,18 @@ export function RSVP({ onSuccess }: RSVPFormProps) {
                 name="email"
                 required
                 placeholder="Enter your email address"
-                className="w-full px-4 py-3 border-2 border-teal/30 focus:border-teal rounded-xl text-lg font-lora placeholder:text-ink/40 transition-all duration-200 hover:border-teal/50 focus:ring-2 focus:ring-teal/20"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-teal/30 focus:border-teal rounded-lg sm:rounded-xl text-base sm:text-lg font-lora placeholder:text-ink/40 transition-all duration-200 hover:border-teal/50 focus:ring-2 focus:ring-teal/20"
               />
             </div>
 
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-teal font-lora tracking-wide">
+            <div className="space-y-1.5 sm:space-y-2">
+              <label className="block text-xs sm:text-sm font-medium text-teal font-lora tracking-wide">
                 Number of Guests *
               </label>
               <select
                 name="guests"
                 required
-                className="w-full px-4 py-3 border-2 border-teal/30 focus:border-teal rounded-xl text-lg font-lora bg-white transition-all duration-200 hover:border-teal/50 focus:ring-2 focus:ring-teal/20 cursor-pointer"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-teal/30 focus:border-teal rounded-lg sm:rounded-xl text-base sm:text-lg font-lora bg-white transition-all duration-200 hover:border-teal/50 focus:ring-2 focus:ring-teal/20 cursor-pointer"
               >
                 <option value="">Select number of guests</option>
                 <option value="1">1</option>
@@ -122,26 +122,26 @@ export function RSVP({ onSuccess }: RSVPFormProps) {
               </select>
             </div>
 
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-teal font-lora tracking-wide">
+            <div className="space-y-1.5 sm:space-y-2">
+              <label className="block text-xs sm:text-sm font-medium text-teal font-lora tracking-wide">
                 Message (Optional)
               </label>
               <textarea
                 name="message"
                 placeholder="Any special requests or dietary restrictions?"
-                rows={4}
-                className="w-full px-4 py-3 border-2 border-teal/30 focus:border-teal rounded-xl min-h-[120px] text-lg font-lora placeholder:text-ink/40 transition-all duration-200 hover:border-teal/50 focus:ring-2 focus:ring-teal/20 resize-none"
+                rows={3}
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-teal/30 focus:border-teal rounded-lg sm:rounded-xl min-h-[100px] sm:min-h-[120px] text-base sm:text-lg font-lora placeholder:text-ink/40 transition-all duration-200 hover:border-teal/50 focus:ring-2 focus:ring-teal/20 resize-none"
               />
             </div>
 
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-teal to-teal/80 hover:from-teal/80 hover:to-teal text-white px-8 py-3 rounded-xl text-lg font-lora shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full bg-gradient-to-r from-teal to-teal/80 hover:from-teal/80 hover:to-teal text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg sm:rounded-xl text-base sm:text-lg font-lora shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <span className="flex items-center gap-2">
-                  <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                  <svg className="animate-spin h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                   </svg>
@@ -153,24 +153,24 @@ export function RSVP({ onSuccess }: RSVPFormProps) {
             </Button>
 
             {isSubmitted && (
-              <div className="text-center mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+              <div className="text-center mt-3 sm:mt-4 p-3 sm:p-4 bg-green-50 border border-green-200 rounded-lg">
                 <div className="flex items-center justify-center gap-2 mb-2">
-                  <CheckCircle className="text-green-600" size={20} />
-                  <span className="text-green-600 font-lora font-semibold">RSVP Sent!</span>
+                  <CheckCircle className="text-green-600" size={18} />
+                  <span className="text-green-600 font-lora font-semibold text-sm sm:text-base">RSVP Sent!</span>
                 </div>
-                <p className="text-green-600 font-lora text-sm">
+                <p className="text-green-600 font-lora text-xs sm:text-sm">
                   Thank you for your RSVP! We look forward to celebrating with you.
                 </p>
               </div>
             )}
 
             {error && (
-              <div className="text-center mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+              <div className="text-center mt-3 sm:mt-4 p-3 sm:p-4 bg-red-50 border border-red-200 rounded-lg">
                 <div className="flex items-center justify-center gap-2 mb-2">
-                  <AlertCircle className="text-red-500" size={20} />
-                  <span className="text-red-500 font-lora font-semibold">Error</span>
+                  <AlertCircle className="text-red-500" size={18} />
+                  <span className="text-red-500 font-lora font-semibold text-sm sm:text-base">Error</span>
                 </div>
-                <p className="text-red-500 font-lora text-sm">{error}</p>
+                <p className="text-red-500 font-lora text-xs sm:text-sm">{error}</p>
               </div>
             )}
           </form>
