@@ -7,7 +7,7 @@ const BackgroundMusic = () => {
 
   useEffect(() => {
     // Create audio element
-    const audio = new Audio('/background+_music/Simply the Best by Billianne Lyrics (Cover).mp3');
+    const audio = new Audio('/background_music/Simply the Best by Billianne Lyrics (Cover).mp3');
     audio.loop = true;
     audio.volume = 0.5; // Set initial volume to 50%
     audioRef.current = audio;
