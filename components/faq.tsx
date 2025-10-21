@@ -43,7 +43,7 @@ export function FAQ() {
       id: 5,
       question: "Are children welcome?",
       answer:
-        "Yes, children are welcome at our wedding. Please indicate the number of children in your RSVP so we can plan accordingly.",
+        "We kindly request that our wedding celebration be adults-only. We appreciate your understanding and look forward to celebrating with you.",
     },
     {
       id: 6,
