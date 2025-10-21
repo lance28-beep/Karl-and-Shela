@@ -61,7 +61,7 @@ export function FAQ() {
       id: 8,
       question: "How do I RSVP?",
       answer:
-        "You can RSVP using the form on this website. Please submit your response by December 10, 2025 to help us with final planning.",
+        "You can RSVP using the form on this website. Please submit your response by November 10, 2025 to help us with final planning.",
     },
   ]
 

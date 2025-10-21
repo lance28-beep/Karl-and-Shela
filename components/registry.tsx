@@ -5,25 +5,12 @@ import Image from "next/image"
 import { Section } from "@/components/section"
 import { Heading } from "@/components/heading"
 import { Button } from "@/components/ui/button"
-import { Heart, Smartphone, Sparkles, Copy, Check, Gift } from "lucide-react"
+import { Heart, Sparkles, Building2 } from "lucide-react"
 import { motion } from "motion/react"
 import { useState } from "react"
 
 export function Registry() {
-  const [copied, setCopied] = useState(false)
   const [hoveredStep, setHoveredStep] = useState<number | null>(null)
-
-  const gcashNumber = "09123456789" // Replace with actual GCash number
-
-  const copyToClipboard = async () => {
-    try {
-      await navigator.clipboard.writeText(gcashNumber)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    } catch (err) {
-      console.error('Failed to copy: ', err)
-    }
-  }
 
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -98,7 +85,7 @@ export function Registry() {
         </motion.div>
       </motion.div>
 
-      {/* GCash QR Section */}
+      {/* BDO QR Section */}
       <motion.div 
         className="bg-white rounded-2xl shadow-soft border border-sand/20 p-6 md:p-10 max-w-2xl mx-auto"
         variants={fadeInUp}
@@ -118,7 +105,7 @@ export function Registry() {
               ease: "easeInOut"
             }}
           >
-            <Smartphone className="w-8 h-8 text-teal" />
+            <Building2 className="w-8 h-8 text-teal" />
           </motion.div>
           <motion.h3 
             className="text-xl md:text-2xl font-playfair font-bold text-ink mb-2"
@@ -126,7 +113,7 @@ export function Registry() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Send via GCash
+            Send via BDO QR
           </motion.h3>
           <motion.p 
             className="text-ink/70 font-lora text-sm md:text-base"
@@ -134,13 +121,13 @@ export function Registry() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Scan the QR code below to send your gift directly through GCash
+            Scan the QR code below to send your gift directly through BDO
           </motion.p>
         </div>
 
         {/* QR Code Container */}
         <motion.div 
-          className="bg-gradient-to-br from-white to-sand/10 rounded-xl p-6 mb-6 border-2 border-dashed border-teal/30 shadow-inner"
+          className="bg-gradient-to-br from-white to-blue-50/30 rounded-xl p-6 mb-6 border-2 border-dashed border-blue-400/30 shadow-inner"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -159,15 +146,15 @@ export function Registry() {
               }}
             >
               <Image
-                src="/QR/GcashQR.png"
-                alt="GCash QR Code for monetary gifts"
+                src="/QR/BDOQR.png"
+                alt="BDO QR Code for monetary gifts"
                 width={200}
                 height={200}
                 className="rounded-lg shadow-lg border-2 border-white"
                 priority
               />
               <motion.div 
-                className="absolute -top-2 -right-2 bg-gradient-to-r from-teal to-teal/80 text-white rounded-full p-1 shadow-md"
+                className="absolute -top-2 -right-2 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-full p-1 shadow-md"
                 animate={{ 
                   scale: [1, 1.2, 1],
                   rotate: [0, 180, 360]
@@ -178,11 +165,12 @@ export function Registry() {
                   ease: "easeInOut"
                 }}
               >
-                <Sparkles className="w-4 h-4" />
+                <Building2 className="w-4 h-4" />
               </motion.div>
             </motion.div>
           </div>
         </motion.div>
+
 
         {/* Instructions */}
         <motion.div 
@@ -192,10 +180,10 @@ export function Registry() {
           animate="animate"
         >
           {[
-            "Open your GCash app",
-            "Scan the QR code above", 
-            "Enter your desired amount",
-            "Complete the transaction"
+            "Open your BDO mobile app",
+            "Tap 'Pay Bills' or 'Send Money'", 
+            "Scan the QR code above",
+            "Enter amount and complete transaction"
           ].map((step, index) => (
             <motion.div 
               key={index}
@@ -230,51 +218,46 @@ export function Registry() {
         </motion.div>
       </motion.div>
 
-      {/* Alternative Methods */}
+      {/* Thank You Message */}
       <motion.div 
         className="mt-8 text-center"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.8 }}
       >
-        <div className="bg-gradient-to-r from-sand/10 to-cream/20 rounded-xl p-6 max-w-2xl mx-auto border border-sand/20">
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <Gift className="w-5 h-5 text-teal" />
-            <h4 className="font-playfair font-bold text-ink text-lg">Alternative Payment</h4>
-          </div>
-          <p className="text-ink/70 font-lora text-sm md:text-base mb-4">
-            Having trouble with the QR code? You can also send directly to our GCash number:
-          </p>
-          <div className="flex items-center justify-center gap-3 bg-white/80 rounded-lg p-3 border border-teal/20">
-            <span className="font-lora font-mono text-teal font-bold text-lg">
-              {gcashNumber}
-            </span>
-            <motion.button
-              onClick={copyToClipboard}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 ${
-                copied 
-                  ? 'bg-green-500 text-white shadow-md' 
-                  : 'bg-teal text-white hover:bg-teal/80 shadow-sm'
-              }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {copied ? (
-                <>
-                  <Check className="w-4 h-4" />
-                  <span className="font-lora text-sm font-medium">Copied!</span>
-                </>
-              ) : (
-                <>
-                  <Copy className="w-4 h-4" />
-                  <span className="font-lora text-sm font-medium">Copy</span>
-                </>
-              )}
-            </motion.button>
-          </div>
-          <p className="text-ink/50 font-lora text-xs mt-3">
-            Or feel free to reach out to us directly for other arrangements.
-          </p>
+        <div className="bg-gradient-to-r from-sand/10 to-cream/20 rounded-xl p-6 md:p-8 max-w-2xl mx-auto border border-sand/20">
+          <motion.div 
+            className="flex justify-center mb-4"
+            animate={{ 
+              scale: [1, 1.1, 1],
+              rotate: [0, 5, -5, 0]
+            }}
+            transition={{ 
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
+            <Heart className="w-8 h-8 text-teal" />
+          </motion.div>
+          <motion.h3 
+            className="text-xl md:text-2xl font-playfair font-bold text-ink mb-3"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Thank You
+          </motion.h3>
+          <motion.p 
+            className="text-ink/80 font-lora leading-relaxed text-sm md:text-base"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            Your generosity and thoughtfulness mean the world to us. Every gift, no matter the size, 
+            brings us closer to our dreams and helps us build our future together. We are deeply 
+            grateful for your love and support as we begin this beautiful journey as husband and wife.
+          </motion.p>
         </div>
       </motion.div>
     </Section>

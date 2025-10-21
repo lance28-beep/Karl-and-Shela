@@ -30,10 +30,12 @@ export function Hero() {
   }, [])
 
   const coupleImages = [
-    { id: 1, img: "/CoupleImage/couple_1.png" },
-    { id: 2, img: "/CoupleImage/couple_2.png" },
-    { id: 3, img: "/CoupleImage/couple_3.png" },
-    { id: 4, img: "/CoupleImage/couple_4.png" },
+    { id: 1, img: "/CoupleImage/couple_24.png" },
+    { id: 2, img: "/CoupleImage/couple_28.png" },
+    { id: 3, img: "/CoupleImage/couple_27.png" },
+    { id: 4, img: "/CoupleImage/couple_26.png" },
+    { id: 5, img: "/CoupleImage/couple_25.png" },
+    { id: 6, img: "/CoupleImage/couple_23.png" },
   ]
 
   // Generate consistent particle positions using a seeded random function

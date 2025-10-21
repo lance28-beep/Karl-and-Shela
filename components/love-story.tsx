@@ -17,21 +17,14 @@ export function LoveStory() {
 
   // Placeholder images - in production, these would be actual couple photos
   const slides = [
-    { id: 1, alt: "CoupleImage/couple_1.png", caption: "In all the world, there is no heart for me like yours", date: "Jan 2019" },
-    { id: 2, alt: "CoupleImage/couple_2.png", caption: "You are my today and all of my tomorrows", date: "Oct 2020" },
-    { id: 3, alt: "CoupleImage/couple_3.png", caption: "I have found the one whom my soul loves", date: "May 2024" },
-    { id: 4, alt: "CoupleImage/couple_4.png", caption: "Two souls, one heart", date: "" },
-    { id: 5, alt: "CoupleImage/couple_5.png", caption: "You make my heart smile", date: "" },
-    { id: 6, alt: "CoupleImage/couple_6.png", caption: "Love is not about how much you say 'I love you', but how much you prove that it's true", date: "" },
-    { id: 7, alt: "CoupleImage/couple_7.png", caption: "Every love story is beautiful, but ours is my favorite", date: "" },
-    { id: 8, alt: "CoupleImage/couple_8.png", caption: "You are my sunshine on a cloudy day", date: "" },
-    { id: 9, alt: "CoupleImage/couple_9.png", caption: "I love you not only for what you are, but for what I am when I am with you", date: "" },
-    { id: 10, alt: "CoupleImage/couple_10.png", caption: "You are my greatest adventure", date: "" },
-    { id: 11, alt: "CoupleImage/couple_11.png", caption: "Forever and always, you and me", date: "" },
-    { id: 12, alt: "CoupleImage/couple_12.png", caption: "You had me at hello", date: "" },
-    { id: 13, alt: "CoupleImage/couple_13.png", caption: "Love is composed of a single soul inhabiting two bodies", date: "" },
-    { id: 14, alt: "CoupleImage/couple_14.png", caption: "You are my today and all of my tomorrows", date: "" },
-    { id: 15, alt: "CoupleImage/couple_15.png", caption: "I choose you. And I'll choose you, over and over and over", date: "" },
+    { id: 1, alt: "CoupleImage/couple_29.png", caption: "In all the world, there is no heart for me like yours", date: "Jan 2019" },
+    { id: 2, alt: "CoupleImage/couple_28.png", caption: "You are my today and all of my tomorrows", date: "Oct 2020" },
+    { id: 3, alt: "CoupleImage/couple_27.png", caption: "I have found the one whom my soul loves", date: "May 2024" },
+    { id: 4, alt: "CoupleImage/couple_26.png", caption: "Two souls, one heart", date: "" },
+    { id: 5, alt: "CoupleImage/couple_25.png", caption: "You make my heart smile", date: "" },
+    { id: 6, alt: "CoupleImage/couple_24.png", caption: "Love is not about how much you say 'I love you', but how much you prove that it's true", date: "" },
+    { id: 7, alt: "CoupleImage/couple_23.png", caption: "Every love story is beautiful, but ours is my favorite", date: "" },
+    { id: 8, alt: "CoupleImage/couple_22.png", caption: "You are my sunshine on a cloudy day", date: "" },
   ]
 
   const AUTOPLAY_MS = 3000

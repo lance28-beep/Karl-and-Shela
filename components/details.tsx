@@ -32,7 +32,6 @@ export function Details() {
   // Generate QR code data
   const ceremonyData = `${siteContent.details.ceremony.venue}\n${siteContent.details.ceremony.location}\n${siteContent.details.ceremony.date} at ${siteContent.details.ceremony.time}`
   const receptionData = `${siteContent.details.reception.venue}\n${siteContent.details.reception.location}`
-  const rsvpData = `RSVP: ${siteContent.details.rsvp.contact}\nPhone: ${siteContent.details.rsvp.phone}\nDeadline: ${siteContent.details.rsvp.deadline}`
 
   // Generate Google Maps links
   const ceremonyMapsLink = `https://maps.google.com/?q=${encodeURIComponent(`${siteContent.details.ceremony.venue}, ${siteContent.details.ceremony.location}`)}`
@@ -263,7 +262,7 @@ export function Details() {
               <h4 className="font-playfair font-bold text-sm sm:text-base md:text-lg text-ink">RSVP Info</h4>
             </div>
             <button
-              onClick={() => copyToClipboard(rsvpData, 'rsvp')}
+              onClick={() => copyToClipboard(`RSVP: ${siteContent.details.rsvp.contact}\nPhone: ${siteContent.details.rsvp.phone}\nDeadline: ${siteContent.details.rsvp.deadline}`, 'rsvp')}
               className="p-1.5 sm:p-2 text-teal/70 hover:text-teal hover:bg-teal/10 rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
               title="Copy RSVP details"
             >
@@ -280,16 +279,6 @@ export function Details() {
             </div>
           </div>
           
-          {/* QR Code for RSVP */}
-          <div className="flex justify-center">
-            <div className="bg-white p-1.5 sm:p-2 md:p-3 rounded-lg border border-sand/40">
-              <QRCode
-                value={rsvpData}
-                size={50}
-                style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-              />
-            </div>
-          </div>
         </div>
       </div>
 

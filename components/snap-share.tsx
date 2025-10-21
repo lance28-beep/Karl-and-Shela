@@ -202,7 +202,7 @@ export function SnapShare() {
                   transition={{ duration: 0.3 }}
                 >
                   <Image
-                    src="/CoupleImage/couple_1.png"
+                    src="/CoupleImage/couple_23.png"
                     alt="Cassly Jane & Mark Florence"
                     fill
                     className="object-cover"
@@ -214,7 +214,7 @@ export function SnapShare() {
                   transition={{ duration: 0.3 }}
                 >
                   <Image
-                    src="/CoupleImage/couple_2.png"
+                    src="/CoupleImage/couple_24.png"
                     alt="Cassly Jane & Mark Florence"
                     fill
                     className="object-cover"
@@ -226,7 +226,7 @@ export function SnapShare() {
                   transition={{ duration: 0.3 }}
                 >
                   <Image
-                    src="/CoupleImage/couple_3.png"
+                    src="/CoupleImage/couple_25.png"
                     alt="Cassly Jane & Mark Florence"
                     fill
                     className="object-cover"
@@ -238,7 +238,7 @@ export function SnapShare() {
                   transition={{ duration: 0.3 }}
                 >
                   <Image
-                    src="/CoupleImage/couple_4.png"
+                    src="/CoupleImage/couple_26.png"
                     alt="Cassly Jane & Mark Florence"
                     fill
                     className="object-cover"
