@@ -205,7 +205,7 @@ export function Footer() {
                   </div>
                 </a>
                 <a 
-                  href="tel:+639123456789" 
+                  href="tel:+639190073474" 
                   className="group flex items-center gap-3 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-cream/10 hover:bg-white/10 hover:border-cream/30 transition-all duration-300"
                 >
                   <div className="w-10 h-10 bg-gradient-to-r from-cream/20 to-cream/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200 border border-cream/20">
@@ -213,7 +213,7 @@ export function Footer() {
                   </div>
                   <div>
                     <p className="font-lora text-cream/90 font-medium">Call Us</p>
-                    <p className="font-lora text-cream/70 text-sm">+63 912 345 6789</p>
+                    <p className="font-lora text-cream/70 text-sm">+639190073474</p>
                   </div>
                 </a>
               </div>
