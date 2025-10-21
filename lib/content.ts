@@ -65,7 +65,7 @@ After countless lunch dates, movie dates, getaway travel, and a million coffee b
     rsvp: {
       deadline: "November 20, 2025",
       contact: "Ms. Joy De Castro",
-      phone: "09190073474",
+      phone: "+639190073474",
     },
   },
   navigation: [
