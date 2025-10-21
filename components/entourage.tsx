@@ -35,7 +35,7 @@ export function Entourage() {
     "Mr. Emil Pelayo",
     "Mr. Homer Cortez",
     "Mr. German Hernandez",
-    "Mrs. Corazon Ruiz",
+    "Ms. Corazon Ruiz",
     "Mrs. Ninia Gonzales",
     "Mrs. Grace Agulan",
     "Mrs. Nancy Briones",
@@ -66,9 +66,9 @@ export function Entourage() {
   ]
 
   // Special Roles
-  const candle = ["Joshua Ruiz", "Clarissa Sinique"]
+  const candle = ["Joshua Ruiz", "Jee Rodriguez"]
   const veil = ["Allysa Lagaña", "Sevastian Dwane Ruiz"]
-  const cord = ["Jee Rodriguez", "Izak Haley Hernandez"]
+  const cord = ["Jane April Castillo", "Izak Haley Hernandez"]
   const ringBearer = "John Carlisle Ruiz"
   const bibleBearer = "Renz Jasper Agbuya"
   const coinBearer = "Roronoa Gin Sim"
