@@ -38,8 +38,8 @@ export function Entourage() {
     "Ms. Corazon Ruiz",
     "Mrs. Ninia Gonzales",
     "Mrs. Grace Agulan",
-    "Mrs. Nancy Briones",
-    "Mrs. Maricel Francisco",
+    "Ms. Nancy Briones",
+    "Ms. Maricel Francisco",
     "Mrs. Lilibeth Briones",
     "Mrs. Lovelyn Hernandez"
   ]
@@ -54,7 +54,7 @@ export function Entourage() {
     "Leonard Joeffrey Yambao",
     "Renzo Carmelo Hernandez",
     "Jozel Añasco",
-    "John Carson Siscar"
+    "John Carsonn Siscar"
   ]
 
   const bridesmaids = [
