@@ -56,10 +56,12 @@ After countless lunch dates, movie dates, getaway travel, and a million coffee b
       sponsors: {
         groom: "Barong with Black Slacks",
         bride: "Light Pink colored Long Gown",
+        colors: ["#cb8d91", "#d4b0b8", "#ebd3d7"]
       },
       guests: {
         gentlemen: "Long or Short Sleeves Polo & Slacks",
         ladies: "Light Pink or Sage Green Formal Attire",
+        colors: ["#c98e94", "#dcabb6", "#ecd1d6", "#c0c4bf", "#989d8e", "#5f674d"]
       },
     },
     rsvp: {

@@ -219,14 +219,45 @@ export function Details() {
           </div>
           <div className="space-y-1.5 sm:space-y-2 md:space-y-3 text-xs sm:text-sm text-ink/70 font-lora">
             <div className="bg-white/50 rounded-lg p-1.5 sm:p-2 md:p-3">
-              <p className="font-semibold text-ink mb-0.5 sm:mb-1 text-xs sm:text-sm">Sponsors:</p>
-              <p className="text-xs">Ninong: {siteContent.details.dressCode.sponsors.groom}</p>
-              <p className="text-xs">Ninang: {siteContent.details.dressCode.sponsors.bride}</p>
+              <p className="font-semibold text-ink mb-0.5 sm:mb-1 text-xs sm:text-sm">Principal Sponsors:</p>
+              <p className="text-xs mb-1">Ninong: {siteContent.details.dressCode.sponsors.groom}</p>
+              <p className="text-xs mb-2">Ninang: {siteContent.details.dressCode.sponsors.bride}</p>
+              
+              {/* Color Palette for Sponsors */}
+              <div className="mt-2">
+                <p className="text-xs font-medium text-ink mb-1">Suggested Colors:</p>
+                <div className="flex gap-1 flex-wrap">
+                  {siteContent.details.dressCode.sponsors.colors.map((color, index) => (
+                    <div
+                      key={index}
+                      className="w-4 h-4 rounded-full border-2 border-ink/20 shadow-sm ring-1 ring-white/30"
+                      style={{ backgroundColor: color }}
+                      title={color}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
+            
             <div className="bg-white/50 rounded-lg p-1.5 sm:p-2 md:p-3">
               <p className="font-semibold text-ink mb-0.5 sm:mb-1 text-xs sm:text-sm">Guests:</p>
-              <p className="text-xs">Gentlemen: {siteContent.details.dressCode.guests.gentlemen}</p>
-              <p className="text-xs">Ladies: {siteContent.details.dressCode.guests.ladies}</p>
+              <p className="text-xs mb-1">Gentlemen: {siteContent.details.dressCode.guests.gentlemen}</p>
+              <p className="text-xs mb-2">Ladies: {siteContent.details.dressCode.guests.ladies}</p>
+              
+              {/* Color Palette for Guests */}
+              <div className="mt-2">
+                <p className="text-xs font-medium text-ink mb-1">Suggested Colors:</p>
+                <div className="flex gap-1 flex-wrap">
+                  {siteContent.details.dressCode.guests.colors.map((color, index) => (
+                    <div
+                      key={index}
+                      className="w-4 h-4 rounded-full border-2 border-ink/20 shadow-sm ring-1 ring-white/30"
+                      style={{ backgroundColor: color }}
+                      title={color}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

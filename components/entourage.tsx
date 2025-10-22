@@ -71,7 +71,7 @@ export function Entourage() {
   const cord = ["Jane April Castillo", "Izak Haley Hernandez"]
   const ringBearer = "John Carlisle Ruiz"
   const bibleBearer = "Renz Jasper Agbuya"
-  const coinBearer = "Roronoa Gin Sim"
+  const coinBearer = "Ronoroa Gin Sim"
   const flowerGirls = [
     "Alexandria Sky Hernandez",
     "Phoebe Rielle Yambao"
