@@ -1,8 +1,8 @@
 {
-  "name": "cassly-and-mark-wedding",
+  "name": "karl-joseph-shela-marie-wedding",
   "version": "1.0.0",
   "private": true,
-  "description": "Wedding website for Cassly Jane & Mark Florence",
+  "description": "Wedding website for Karl Joseph & Shela Marie",
   "scripts": {
     "build": "next build",
     "dev": "next dev",
@@ -47,8 +47,9 @@
     "cmdk": "1.0.4",
     "date-fns": "4.1.0",
     "embla-carousel-react": "8.5.1",
-    "gsap": "latest",
+    "gsap": "^3.13.0",
     "input-otp": "1.4.1",
+    "lenis": "^1.3.13",
     "lucide-react": "^0.454.0",
     "motion": "latest",
     "next": "15.2.4",

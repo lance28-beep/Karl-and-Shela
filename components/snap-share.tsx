@@ -12,8 +12,8 @@ export function SnapShare() {
   const [scrollY, setScrollY] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
   
-  const websiteUrl = typeof window !== 'undefined' ? window.location.href : 'https://casslyandmark.com'
-  const hashtags = ['#GodMARKedtheoneforCASS', '#CASSaMACahabangbuhay']
+  const websiteUrl = typeof window !== 'undefined' ? window.location.href : 'https://karljosephshelamarie.com'
+  const hashtags = ['#angNaKARLjackpotSaPusoNiSHELA']
   const shareText = `Join us in celebrating our special day! Check out our wedding website: ${websiteUrl} ${hashtags.join(' ')} 💕`
   
   useEffect(() => {
@@ -75,7 +75,7 @@ export function SnapShare() {
         ctx?.drawImage(img, 0, 0)
         
         const link = document.createElement('a')
-        link.download = 'casslyn-mark-wedding-qr.png'
+        link.download = 'karl-shela-wedding-qr.png'
         link.href = canvas.toDataURL()
         link.click()
       }
@@ -139,14 +139,14 @@ export function SnapShare() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="inline-block bg-white/90 backdrop-blur-sm rounded-2xl px-4 sm:px-6 py-4 mb-4 shadow-lg border border-cream/20">
-            <h2 className="font-playfair text-2xl sm:text-3xl md:text-4xl font-bold text-teal mb-1">
+            <h2 className="font-playfair text-2xl sm:text-3xl md:text-4xl font-bold mb-1" style={{ color: '#49513C' }}>
               Snap & Share
             </h2>
-            <h3 className="font-lora text-base sm:text-lg md:text-xl text-ink/80 font-medium">
+            <h3 className="font-lora text-base sm:text-lg md:text-xl font-medium" style={{ color: '#49513C' }}>
               Share Your Moments
             </h3>
           </div>
-          <p className="font-lora text-ink/70 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base px-4">
+          <p className="font-lora max-w-2xl mx-auto leading-relaxed text-sm sm:text-base px-4" style={{ color: '#49513C' }}>
             Help us document our special day by sharing our captured moments using our official hashtag.
           </p>
         </motion.div>
@@ -185,14 +185,14 @@ export function SnapShare() {
                   </div>
                 ))}
               </div>
-              <p className="font-lora text-ink/70 text-sm mb-3">
+              <p className="font-lora text-sm mb-3" style={{ color: '#49513C' }}>
                 Use these hashtags on your social media posts to be featured in our wedding gallery
               </p>
             </div>
             
             {/* Couple Photos Gallery */}
             <div className="mt-6">
-              <h4 className="font-playfair text-base sm:text-lg font-bold text-ink mb-4 text-center">
+              <h4 className="font-playfair text-base sm:text-lg font-bold mb-4 text-center" style={{ color: '#49513C' }}>
                 Our Favorite Moments
               </h4>
               <div className="grid grid-cols-2 gap-2 sm:gap-3">
@@ -202,8 +202,8 @@ export function SnapShare() {
                   transition={{ duration: 0.3 }}
                 >
                   <Image
-                    src="/CoupleImage/couple_23.png"
-                    alt="Cassly Jane & Mark Florence"
+                    src="/background_picture/couple_3.webp"
+                    alt="Karl Joseph & Shela Marie"
                     fill
                     className="object-cover"
                   />
@@ -214,8 +214,8 @@ export function SnapShare() {
                   transition={{ duration: 0.3 }}
                 >
                   <Image
-                    src="/CoupleImage/couple_24.png"
-                    alt="Cassly Jane & Mark Florence"
+                    src="/background_picture/couple_5.webp"
+                    alt="Karl Joseph & Shela Marie"
                     fill
                     className="object-cover"
                   />
@@ -226,8 +226,8 @@ export function SnapShare() {
                   transition={{ duration: 0.3 }}
                 >
                   <Image
-                    src="/CoupleImage/couple_25.png"
-                    alt="Cassly Jane & Mark Florence"
+                    src="/background_picture/couple_7.webp"
+                    alt="Karl Joseph & Shela Marie"
                     fill
                     className="object-cover"
                   />
@@ -238,14 +238,14 @@ export function SnapShare() {
                   transition={{ duration: 0.3 }}
                 >
                   <Image
-                    src="/CoupleImage/couple_26.png"
-                    alt="Cassly Jane & Mark Florence"
+                    src="/background_picture/couple_19.webp"
+                    alt="Karl Joseph & Shela Marie"
                     fill
                     className="object-cover"
                   />
                 </motion.div>
               </div>
-              <p className="font-lora text-ink/60 text-xs text-center mt-3 px-2">
+              <p className="font-lora text-xs text-center mt-3 px-2" style={{ color: '#49513C' }}>
                 Share your photos using our hashtag to be featured here!
               </p>
             </div>
@@ -258,7 +258,7 @@ export function SnapShare() {
           >
             {/* QR Code */}
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-lg border border-cream/20 text-center">
-              <h4 className="font-playfair text-base sm:text-lg font-bold text-ink mb-4">
+              <h4 className="font-playfair text-base sm:text-lg font-bold mb-4" style={{ color: '#49513C' }}>
                 Share Our Website
               </h4>
               <div className="inline-block bg-white p-3 sm:p-4 rounded-xl shadow-md border border-ink/10 mb-3">
@@ -276,35 +276,35 @@ export function SnapShare() {
                   <span className="font-lora">Download QR</span>
                 </button>
               </div>
-              <p className="font-lora text-ink/60 text-xs">
+              <p className="font-lora text-xs" style={{ color: '#49513C' }}>
                 Scan with any camera app
               </p>
             </div>
 
             {/* Reminders Section */}
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-cream/20">
-              <h5 className="font-playfair text-lg font-bold text-ink mb-4 text-center">
+              <h5 className="font-playfair text-lg font-bold mb-4 text-center" style={{ color: '#49513C' }}>
                 Reminders
               </h5>
               <div className="space-y-3">
                 <div className="flex items-center gap-3 bg-gradient-to-r from-teal/5 to-sand/10 p-3 rounded-lg border border-teal/10">
                   <div className="w-2 h-2 bg-teal rounded-full flex-shrink-0"></div>
-                  <span className="font-lora text-ink/80 font-medium text-sm sm:text-base">Be on Time</span>
+                  <span className="font-lora font-medium text-sm sm:text-base" style={{ color: '#49513C' }}>Be on Time</span>
                 </div>
                 <div className="flex items-center gap-3 bg-gradient-to-r from-teal/5 to-sand/10 p-3 rounded-lg border border-teal/10">
                   <div className="w-2 h-2 bg-teal rounded-full flex-shrink-0"></div>
-                  <span className="font-lora text-ink/80 font-medium text-sm sm:text-base">Finish the Event</span>
+                  <span className="font-lora font-medium text-sm sm:text-base" style={{ color: '#49513C' }}>Finish the Event</span>
                 </div>
                 <div className="flex items-center gap-3 bg-gradient-to-r from-teal/5 to-sand/10 p-3 rounded-lg border border-teal/10">
                   <div className="w-2 h-2 bg-teal rounded-full flex-shrink-0"></div>
-                  <span className="font-lora text-ink/80 font-medium text-sm sm:text-base">Enjoy and have fun</span>
+                  <span className="font-lora font-medium text-sm sm:text-base" style={{ color: '#49513C' }}>Enjoy and have fun</span>
                 </div>
               </div>
             </div>
 
             {/* Social Media Buttons */}
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-lg border border-cream/20">
-              <h5 className="font-playfair text-lg font-bold text-ink mb-4 text-center">
+              <h5 className="font-playfair text-lg font-bold mb-4 text-center" style={{ color: '#49513C' }}>
                 Share on Social Media
               </h5>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
@@ -348,7 +348,7 @@ export function SnapShare() {
           variants={fadeInUp}
         >
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg border border-cream/20 max-w-3xl mx-auto">
-            <p className="font-lora text-ink/80 text-base sm:text-lg leading-relaxed mb-4">
+            <p className="font-lora text-base sm:text-lg leading-relaxed mb-4" style={{ color: '#49513C' }}>
               We are so excited to celebrate our love with you! See you on our special day!
             </p>
             <div className="flex items-center justify-center gap-2">
@@ -356,8 +356,8 @@ export function SnapShare() {
                 <div className="w-6 h-6 bg-gradient-to-r from-teal to-teal/80 rounded-full border-2 border-white"></div>
                 <div className="w-6 h-6 bg-gradient-to-r from-sand to-sand/80 rounded-full border-2 border-white"></div>
               </div>
-              <span className="font-playfair text-teal font-bold text-lg sm:text-xl">
-                – Cassly and Mark –
+              <span className="font-playfair font-bold text-lg sm:text-xl" style={{ color: '#49513C' }}>
+                – Karl and Shela –
               </span>
             </div>
           </div>

@@ -3,7 +3,8 @@
 import type React from "react"
 
 import { motion, useMotionValue, useTransform } from "motion/react"
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect } from "react"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 // Generate consistent random values for SSR/client consistency
 const generateSeededRandom = (seed: number) => {
@@ -34,12 +35,13 @@ function CardRotate({ children, onSendToBack, sensitivity }: CardRotateProps) {
 
   return (
     <motion.div
-      className="absolute cursor-grab"
+      className="absolute cursor-grab touch-manipulation"
       style={{ x, y, rotateX, rotateY }}
       drag
-      dragConstraints={{ top: 0, right: 0, bottom: 0, left: 0 }}
-      dragElastic={0.6}
-      whileTap={{ cursor: "grabbing" }}
+      dragConstraints={{ top: -50, right: 50, bottom: 50, left: -50 }}
+      dragElastic={0.2}
+      dragMomentum={false}
+      whileTap={{ cursor: "grabbing", scale: 0.95 }}
       onDragEnd={handleDragEnd}
     >
       {children}
@@ -54,6 +56,7 @@ interface StackProps {
   sendToBackOnClick?: boolean
   cardsData?: { id: number; img: string }[]
   animationConfig?: { stiffness: number; damping: number }
+  responsive?: boolean
 }
 
 export default function Stack({
@@ -63,6 +66,7 @@ export default function Stack({
   cardsData = [],
   animationConfig = { stiffness: 260, damping: 20 },
   sendToBackOnClick = false,
+  responsive = true,
 }: StackProps) {
   const [cards, setCards] = useState(
     cardsData.length
@@ -87,6 +91,33 @@ export default function Stack({
         ],
   )
 
+  // Use mobile detection hook
+  const isMobile = useIsMobile()
+  
+  // Calculate responsive dimensions and sensitivity
+  const responsiveDimensions = useMemo(() => {
+    if (!responsive) return cardDimensions
+    
+    const multiplier = isMobile ? 0.6 : 0.85
+    const result = {
+      width: Math.round(cardDimensions.width * multiplier),
+      height: Math.round(cardDimensions.height * multiplier)
+    }
+    
+    console.log('Stack dimensions:', { isMobile, multiplier, cardDimensions, result })
+    return result
+  }, [cardDimensions, responsive, isMobile])
+  
+  const responsiveSensitivity = useMemo(() => {
+    if (!responsive) return sensitivity
+    
+    const sensitivityMultiplier = isMobile ? 0.4 : 0.8
+    const result = Math.round(sensitivity * sensitivityMultiplier)
+    
+    console.log('Stack sensitivity:', { isMobile, sensitivityMultiplier, sensitivity, result })
+    return result
+  }, [sensitivity, responsive, isMobile])
+
   // Generate consistent random rotations for each card
   const randomRotations = useMemo(() => {
     return cards.map((card, index) => 
@@ -104,12 +135,16 @@ export default function Stack({
     })
   }
 
+  // Use responsive dimensions if client-side, otherwise fallback to original
+  const currentDimensions = responsiveDimensions
+  const currentSensitivity = responsiveSensitivity
+
   return (
     <div
       className="relative"
       style={{
-        width: cardDimensions.width,
-        height: cardDimensions.height,
+        width: currentDimensions.width,
+        height: currentDimensions.height,
         perspective: 600,
       }}
     >
@@ -117,10 +152,17 @@ export default function Stack({
         const randomRotate = randomRotations[index]
 
         return (
-          <CardRotate key={card.id} onSendToBack={() => sendToBack(card.id)} sensitivity={sensitivity}>
+          <CardRotate key={card.id} onSendToBack={() => sendToBack(card.id)} sensitivity={currentSensitivity}>
             <motion.div
-              className="rounded-2xl overflow-hidden border-4 border-white"
-              onClick={() => sendToBackOnClick && sendToBack(card.id)}
+              className="rounded-2xl overflow-hidden border-4 border-white touch-manipulation"
+              onClick={() => {
+                if (sendToBackOnClick) {
+                  sendToBack(card.id)
+                } else {
+                  // For mobile, also allow click to send to back
+                  sendToBack(card.id)
+                }
+              }}
               animate={{
                 rotateZ: (cards.length - index - 1) * 4 + randomRotate,
                 scale: 1 + index * 0.06 - cards.length * 0.06,
@@ -133,8 +175,11 @@ export default function Stack({
                 damping: animationConfig.damping,
               }}
               style={{
-                width: cardDimensions.width,
-                height: cardDimensions.height,
+                width: currentDimensions.width,
+                height: currentDimensions.height,
+                WebkitTouchCallout: 'none',
+                WebkitUserSelect: 'none',
+                userSelect: 'none',
               }}
             >
               <img src={card.img} alt={`card-${card.id}`} className="w-full h-full object-cover pointer-events-none" />

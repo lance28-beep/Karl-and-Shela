@@ -9,25 +9,25 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfa
 const lora = Lora({ subsets: ["latin"], variable: "--font-lora" })
 
 export const metadata: Metadata = {
-  title: "Cassly Jane & Mark Florence - Wedding Invitation",
+  title: "Karl Joseph & Shela Marie - Wedding Invitation",
   description:
-    "You're invited to the wedding of Cassly Jane and Mark Florence! Join us on December 20, 2025, in Tagaytay City, Philippines. RSVP, read our love story, view our gallery, and leave a message for the couple.",
+    "You're invited to the wedding of Karl Joseph and Shela Marie! Join us on February 28, 2026, at National Shrine of St. Joseph, Philippines. RSVP, read our love story, view our gallery, and leave a message for the couple.",
   keywords:
-    "Cassly Jane Mark Florence wedding, Tagaytay wedding, Filipino wedding, RSVP, wedding gallery, wedding message wall, wedding invitation, 2025 weddings, love story, guestbook, wedding registry, wedding details, wedding venues Philippines, #CasslyAndMarkWedding",
+    "Karl Joseph Shela Marie wedding, National Shrine of St. Joseph wedding, Filipino wedding, RSVP, wedding gallery, wedding message wall, wedding invitation, 2026 weddings, love story, guestbook, wedding registry, wedding details, wedding venues Philippines, #angNaKARLjackpotSaPusoNiSHELA",
   authors: [
-    { name: "Cassly Jane" },
-    { name: "Mark Florence" },
+    { name: "Karl Joseph" },
+    { name: "Shela Marie" },
   ],
-  creator: "Cassly Jane & Mark Florence",
-  publisher: "Cassly Jane & Mark Florence",
+  creator: "Karl Joseph & Shela Marie",
+  publisher: "Karl Joseph & Shela Marie",
   formatDetection: {
     email: false,
     address: false,
     telephone: true,
   },
-  metadataBase: new URL("https://cassly-jane-mark-florence-invitatio.vercel.app/"),
+  metadataBase: new URL("https://karl-joseph-shela-marie-wedding.vercel.app/"),
   alternates: {
-    canonical: "https://cassly-jane-mark-florence-invitatio.vercel.app/",
+    canonical: "https://karl-joseph-shela-marie-wedding.vercel.app/",
   },
   icons: {
     icon: [
@@ -49,29 +49,29 @@ export const metadata: Metadata = {
   },
   manifest: "/favicon_io/site.webmanifest",
   openGraph: {
-    title: "Cassly Jane & Mark Florence Wedding | December 20, 2025 | Tagaytay",
+    title: "Karl Joseph & Shela Marie Wedding | February 28, 2026 | National Shrine of St. Joseph",
     description:
-      "Celebrate the union of Cassly Jane and Mark Florence on December 20, 2025, in Tagaytay City, Philippines. Discover our love story, RSVP, view the gallery, and leave your wishes!",
-    url: "https://cassly-jane-mark-florence-invitatio.vercel.app/",
-    siteName: "Cassly Jane & Mark Florence Wedding",
+      "Celebrate the union of Karl Joseph and Shela Marie on February 28, 2026, at National Shrine of St. Joseph, Philippines. Discover our love story, RSVP, view the gallery, and leave your wishes!",
+    url: "https://karl-joseph-shela-marie-wedding.vercel.app/",
+    siteName: "Karl Joseph & Shela Marie Wedding",
     locale: "en_PH",
     type: "website",
     images: [
       {
-        url: "https://cassly-jane-mark-florence-invitatio.vercel.app/CoupleImage/couple_1.png",
+        url: "https://karl-joseph-shela-marie-wedding.vercel.app/couple.png",
         width: 1200,
         height: 630,
-        alt: "Cassly Jane & Mark Florence Wedding Invitation - December 20, 2025, Tagaytay",
+        alt: "Karl Joseph & Shela Marie Wedding Invitation - February 28, 2026, National Shrine of St. Joseph",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cassly Jane & Mark Florence Wedding Invitation",
+    title: "Karl Joseph & Shela Marie Wedding Invitation",
     description:
-      "You're invited to the wedding of Cassly Jane and Mark Florence! December 20, 2025, Tagaytay City, Philippines. RSVP, view our gallery, and leave a message! #CasslyAndMarkWedding",
-    images: ["https://cassly-jane-mark-florence-invitatio.vercel.app/CoupleImage/couple_1.png"],
-    creator: "@casslyandmark",
+      "You're invited to the wedding of Karl Joseph and Shela Marie! February 28, 2026, National Shrine of St. Joseph, Philippines. RSVP, view our gallery, and leave a message! #angNaKARLjackpotSaPusoNiSHELA",
+    images: ["https://karl-joseph-shela-marie-wedding.vercel.app/couple.png"],
+    creator: "@karljosephshelamarie",
   },
   robots: {
     index: true,
@@ -91,38 +91,38 @@ export const metadata: Metadata = {
     "application/ld+json": JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Event",
-      name: "Cassly Jane & Mark Florence Wedding",
-      startDate: "2025-12-20T16:00:00+08:00",
-      endDate: "2025-12-20T22:00:00+08:00",
+      name: "Karl Joseph & Shela Marie Wedding",
+      startDate: "2026-02-28T14:30:00+08:00",
+      endDate: "2026-02-28T22:00:00+08:00",
       eventStatus: "https://schema.org/EventScheduled",
       eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
       location: [
         {
           "@type": "Place",
-          name: "Tagaytay City",
+          name: "National Shrine of St. Joseph",
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Tagaytay City",
-            addressRegion: "Cavite",
+            addressLocality: "Mandaue City",
+            addressRegion: "Cebu",
             addressCountry: "PH",
           },
         },
       ],
-      image: ["https://cassly-jane-mark-florence-invitatio.vercel.app/couple_1.png"],
+      image: ["https://karl-joseph-shela-marie-wedding.vercel.app/couple.png"],
       description:
-        "You're invited to the wedding of Cassly Jane and Mark Florence! Join us on December 20, 2025, in Tagaytay City, Philippines. RSVP, read our love story, view our gallery, and leave a message for the couple.",
+        "You're invited to the wedding of Karl Joseph and Shela Marie! Join us on February 28, 2026, at National Shrine of St. Joseph, Philippines. RSVP, read our love story, view our gallery, and leave a message for the couple.",
       organizer: {
         "@type": "Person",
-        name: "Cassly Jane & Mark Florence",
+        name: "Karl Joseph & Shela Marie",
       },
       offers: {
         "@type": "Offer",
-        url: "https://cassly-jane-mark-florence-invitatio.vercel.app/",
+        url: "https://karl-joseph-shela-marie-wedding.vercel.app/",
         availability: "https://schema.org/InStock",
         price: "0",
         priceCurrency: "PHP",
       },
-      eventHashtag: "#CasslyAndMarkWedding",
+      eventHashtag: "#angNaKARLjackpotSaPusoNiSHELA",
     }),
   },
 }
@@ -135,10 +135,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="theme-color" content="#5f674f" />
+        <meta name="theme-color" content="#49513C" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={`${playfair.variable} ${lora.variable} font-lora antialiased bg-cream text-ink`}>
+      <body className={`${playfair.variable} ${lora.variable} font-lora antialiased`} style={{ backgroundColor: '#49513C', color: '#FDDFDD' }}>
         {children}
         <BackgroundMusic />
         <Analytics />

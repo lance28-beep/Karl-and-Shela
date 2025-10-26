@@ -6,9 +6,10 @@ interface HeadingProps {
   children: ReactNode
   className?: string
   subtitle?: string
+  style?: React.CSSProperties
 }
 
-export function Heading({ level = "h2", children, className, subtitle }: HeadingProps) {
+export function Heading({ level = "h2", children, className, subtitle, style }: HeadingProps) {
   const sizes = {
     h1: "heading-lg",
     h2: "heading-md",
@@ -19,8 +20,8 @@ export function Heading({ level = "h2", children, className, subtitle }: Heading
 
   return (
     <div className="text-center mb-12">
-      <Component className={cn(sizes[level], "text-balance-custom", className)}>{children}</Component>
-      {subtitle && <p className="text-lg text-ink/70 mt-4 max-w-2xl mx-auto">{subtitle}</p>}
+      <Component className={cn(sizes[level], "text-balance-custom", className)} style={style}>{children}</Component>
+      {subtitle && <p className="body-large text-ink/70 mt-4 max-w-2xl mx-auto">{subtitle}</p>}
     </div>
   )
 }

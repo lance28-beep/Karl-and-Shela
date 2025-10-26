@@ -1,7 +1,7 @@
 "use client"
 
 import { siteContent } from "@/lib/content"
-import { Mail, Phone, MapPin, Heart, Calendar, Clock, Users, Gift, MessageCircle } from "lucide-react"
+import { Mail, Phone, MapPin, Heart, Calendar, Clock, Users, Gift, MessageCircle, Facebook } from "lucide-react"
 import { motion } from "motion/react"
 import { useEffect, useState } from "react"
 
@@ -30,7 +30,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="relative bg-gradient-to-b from-ink to-ink/95 text-cream overflow-hidden">
+    <footer className="relative text-cream overflow-hidden" style={{ backgroundColor: '#49513C' }}>
       {/* Background decorative elements with parallax */}
       <div className="absolute inset-0 opacity-10">
         <motion.div 
@@ -99,11 +99,11 @@ export function Footer() {
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-cream/90 font-lora">
                   <Calendar className="w-5 h-5 text-cream/70" />
-                  <span className="text-lg">December 20, 2025</span>
+                  <span className="text-lg">February 28, 2026</span>
                 </div>
                 <div className="flex items-center gap-3 text-cream/80 font-lora">
                   <MapPin className="w-5 h-5 text-cream/60" />
-                  <span>Tagaytay City, Philippines</span>
+                  <span>National Shrine of St. Joseph, Mandaue City</span>
                 </div>
               </div>
             </div>
@@ -114,9 +114,12 @@ export function Footer() {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              <blockquote className="font-lora text-cream/90 italic text-lg leading-relaxed">
-                "Two souls, one heart, forever intertwined in love's beautiful dance."
+              <blockquote className="font-lora text-cream/90 italic text-lg leading-relaxed mb-2">
+                "Tungod Niini, ang giniusa sa dios kinahanglan nga dili bulagon sa tawo"
               </blockquote>
+              <p className="font-playfair text-cream/70 text-sm text-right">
+                - Marcos 10:9
+              </p>
               <div className="flex items-center gap-2 mt-4">
                 <div className="w-2 h-2 bg-cream/60 rounded-full"></div>
                 <div className="w-2 h-2 bg-cream/40 rounded-full"></div>
@@ -152,7 +155,7 @@ export function Footer() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Clock size={16} className="text-cream/60" />
-                  <span className="text-cream/70">3:00 PM</span>
+                  <span className="text-cream/70">2:30 PM</span>
                 </div>
               </div>
             </motion.div>
@@ -193,7 +196,7 @@ export function Footer() {
               </h4>
               <div className="space-y-4">
                 <a 
-                  href="mailto:casslyjaneruiz@gmail.com" 
+                  href="mailto:karljosephshelamarie@gmail.com" 
                   className="group flex items-center gap-3 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-cream/10 hover:bg-white/10 hover:border-cream/30 transition-all duration-300"
                 >
                   <div className="w-10 h-10 bg-gradient-to-r from-cream/20 to-cream/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200 border border-cream/20">
@@ -201,19 +204,35 @@ export function Footer() {
                   </div>
                   <div>
                     <p className="font-lora text-cream/90 font-medium">Email Us</p>
-                    <p className="font-lora text-cream/70 text-sm">casslyjaneruiz@gmail.com</p>
+                    <p className="font-lora text-cream/70 text-sm">karljosephshelamarie@gmail.com</p>
                   </div>
                 </a>
                 <a 
-                  href="tel:+639190073474" 
+                  href="https://www.facebook.com/share/1ZWesERXXF/?mibextid=wwXIfr" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group flex items-center gap-3 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-cream/10 hover:bg-white/10 hover:border-cream/30 transition-all duration-300"
                 >
-                  <div className="w-10 h-10 bg-gradient-to-r from-cream/20 to-cream/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200 border border-cream/20">
-                    <Phone size={18} className="text-cream" />
+                  <div className="w-10 h-10 bg-gradient-to-r from-blue-600/30 to-blue-500/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200 border border-blue-400/30">
+                    <Facebook size={18} className="text-cream" />
                   </div>
                   <div>
-                    <p className="font-lora text-cream/90 font-medium">Call Us</p>
-                    <p className="font-lora text-cream/70 text-sm">+639190073474</p>
+                    <p className="font-lora text-cream/90 font-medium">Follow Shela</p>
+                    <p className="font-lora text-cream/70 text-sm">on Facebook</p>
+                  </div>
+                </a>
+                <a 
+                  href="https://www.facebook.com/share/14JhkyDP33z/?mibextid=wwXIfr" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-cream/10 hover:bg-white/10 hover:border-cream/30 transition-all duration-300"
+                >
+                  <div className="w-10 h-10 bg-gradient-to-r from-blue-600/30 to-blue-500/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200 border border-blue-400/30">
+                    <Facebook size={18} className="text-cream" />
+                  </div>
+                  <div>
+                    <p className="font-lora text-cream/90 font-medium">Follow Karl</p>
+                    <p className="font-lora text-cream/70 text-sm">on Facebook</p>
                   </div>
                 </a>
               </div>
@@ -295,7 +314,7 @@ export function Footer() {
 
       {/* Floating Messenger Button */}
       <a
-        href="https://m.me/cassly.ruiz"
+        href="https://m.me/shelarivera05"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contact us on Messenger"

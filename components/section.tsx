@@ -5,7 +5,7 @@ interface SectionProps {
   id?: string
   children: ReactNode
   className?: string
-  bgColor?: "cream" | "sand" | "white" | "teal"
+  bgColor?: "cream" | "sand" | "white" | "teal" | string
 }
 
 export function Section({ id, children, className, bgColor = "cream" }: SectionProps) {
@@ -16,8 +16,19 @@ export function Section({ id, children, className, bgColor = "cream" }: SectionP
     teal: "bg-teal text-cream",
   }
 
+  // Handle custom hex colors - detect if it's a dark color
+  const isDarkColor = bgColor.startsWith('#') && bgColor === '#49513C'
+  const customBgColor = bgColor.startsWith('#') ? { 
+    backgroundColor: bgColor,
+    color: isDarkColor ? '#FFF9E0' : undefined
+  } : undefined
+  
   return (
-    <section id={id} className={cn("section-padding", bgColors[bgColor], className)}>
+    <section 
+      id={id} 
+      className={cn("section-padding", !customBgColor && bgColors[bgColor as keyof typeof bgColors], className)}
+      style={customBgColor}
+    >
       <div className="section-max-width">{children}</div>
     </section>
   )

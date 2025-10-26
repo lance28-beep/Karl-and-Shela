@@ -5,50 +5,50 @@
 
 :root {
   /* Global surface and text */
-  --background: #ead1d5; /* lightest rose for page background */
-  --foreground: #5f674f; /* deep sage for primary text */
+  --background: #49513C; /* deep sage background */
+  --foreground: #FDDFDD; /* lightest rose for primary text */
 
   /* Surfaces */
   --card: #ffffff;
-  --card-foreground: #5f674f;
+  --card-foreground: #49513C;
   --popover: #ffffff;
-  --popover-foreground: #5f674f;
+  --popover-foreground: #49513C;
 
   /* Brand roles */
-  --primary: #5f674f; /* deep sage */
+  --primary: #49513C; /* deep sage */
   --primary-foreground: #ffffff;
-  --secondary: #c5cac4; /* light sage */
-  --secondary-foreground: #5f674f;
-  --muted: #d9aeb8; /* soft rose */
-  --muted-foreground: #5f674f;
-  --accent: #ca8e90; /* rose accent */
-  --accent-foreground: #ffffff;
-  --destructive: #ca8e90; /* reuse accent for destructive with white fg */
-  --destructive-foreground: #ffffff;
+  --secondary: #898C79; /* light sage */
+  --secondary-foreground: #49513C;
+  --muted: #F1D3D1; /* soft rose */
+  --muted-foreground: #49513C;
+  --accent: #E8B2B2; /* rose accent */
+  --accent-foreground: #49513C;
+  --destructive: #E8B2B2; /* reuse accent for destructive with white fg */
+  --destructive-foreground: #49513C;
 
   /* UI tokens */
-  --border: #c5cac4;
-  --input: #c5cac4;
-  --ring: #5f674f;
+  --border: #898C79;
+  --input: #898C79;
+  --ring: #49513C;
 
   /* Charts (mapped within palette range) */
-  --chart-1: #5f674f;
-  --chart-2: #979e8e;
-  --chart-3: #c5cac4;
-  --chart-4: #d9aeb8;
-  --chart-5: #ca8e90;
+  --chart-1: #49513C;
+  --chart-2: #898C79;
+  --chart-3: #E8B2B2;
+  --chart-4: #F1D3D1;
+  --chart-5: #FDDFDD;
 
   --radius: 0.625rem;
 
   /* Sidebar */
-  --sidebar: #ead1d5;
-  --sidebar-foreground: #5f674f;
-  --sidebar-primary: #5f674f;
+  --sidebar: #FDDFDD;
+  --sidebar-foreground: #49513C;
+  --sidebar-primary: #49513C;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #d9aeb8;
-  --sidebar-accent-foreground: #5f674f;
-  --sidebar-border: #c5cac4;
-  --sidebar-ring: #5f674f;
+  --sidebar-accent: #F1D3D1;
+  --sidebar-accent-foreground: #49513C;
+  --sidebar-border: #898C79;
+  --sidebar-ring: #49513C;
 }
 
 @theme inline {
@@ -56,10 +56,11 @@
   --font-lora: "Lora", serif;
 
   /* Named colors used in components */
-  --color-cream: #ead1d5; /* background sections */
-  --color-sand: #d9aeb8; /* alternate section */
-  --color-teal: #5f674f; /* deep sage backgrounds */
-  --color-ink: #5f674f; /* primary text */
+  --color-cream: #FDDFDD; /* background sections */
+  --color-sand: #F1D3D1; /* alternate section */
+  --color-teal: #49513C; /* deep sage backgrounds */
+  --color-ink: #FDDFDD; /* primary text - light on dark background */
+  --color-rose: #E8B2B2; /* rose accent for warnings */
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -102,10 +103,14 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
+    font-family: 'Lora', serif;
+    letter-spacing: 0.01em;
   }
 
   h1,
@@ -115,10 +120,12 @@
   h5,
   h6 {
     @apply font-playfair font-bold;
+    letter-spacing: -0.02em;
   }
 
   p {
     @apply leading-relaxed;
+    letter-spacing: 0.01em;
   }
 }
 
@@ -131,16 +138,54 @@
     @apply max-w-6xl mx-auto;
   }
 
+  /* Typography System based on Staggered Menu */
+  
+  /* Primary Headings - Large Navigation Style */
   .heading-lg {
-    @apply text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-ink;
+    @apply text-4xl md:text-5xl lg:text-6xl font-semibold text-ink uppercase tracking-[-2px] leading-none;
   }
 
+  /* Secondary Headings - Section Titles */
   .heading-md {
-    @apply text-3xl md:text-4xl font-playfair font-bold text-ink;
+    @apply text-3xl md:text-4xl font-semibold text-ink uppercase tracking-[-1px] leading-tight;
   }
 
+  /* Tertiary Headings - Subsection Titles */
   .heading-sm {
-    @apply text-2xl md:text-3xl font-playfair font-bold text-ink;
+    @apply text-2xl md:text-3xl font-medium text-ink leading-tight;
+  }
+
+  /* Menu Item Style - For large navigation elements */
+  .menu-item-style {
+    @apply text-4xl font-semibold text-ink uppercase tracking-[-2px] leading-none transition-colors duration-150;
+  }
+
+  /* Button Text Style */
+  .button-text-style {
+    @apply font-medium text-base leading-none;
+  }
+
+  /* Social Link Style */
+  .social-link-style {
+    @apply text-xl font-medium leading-none transition-colors duration-300;
+  }
+
+  /* Section Title Style */
+  .section-title-style {
+    @apply text-base font-medium text-ink uppercase tracking-wide;
+  }
+
+  /* Body Text Styles */
+  .body-large {
+    @apply text-lg font-normal leading-relaxed;
+  }
+
+  .body-medium {
+    @apply text-base font-normal leading-relaxed;
+  }
+
+  .body-small {
+    @apply text-sm font-normal leading-relaxed;
   }
 
   .text-balance-custom {
@@ -149,5 +194,33 @@
 
   .shadow-soft {
     @apply shadow-sm;
+  }
+
+  /* Marquee Animation */
+  .animate-marquee {
+    animation: marquee 50s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Shimmer Animation for Modal */
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%) translateY(0) skewX(-12deg);
+    }
+    100% {
+      transform: translateX(300%) translateY(0) skewX(-12deg);
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 3s ease-in-out infinite;
   }
 }
