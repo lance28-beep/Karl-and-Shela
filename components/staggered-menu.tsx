@@ -59,6 +59,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   const [open, setOpen] = useState(false);
   const [gsapLoaded, setGsapLoaded] = useState(false);
   const openRef = useRef(false);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   const panelRef = useRef<HTMLDivElement | null>(null);
   const preLayersRef = useRef<HTMLDivElement | null>(null);
@@ -109,8 +110,11 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
       preLayerElsRef.current = preLayers;
 
       const offscreen = position === 'left' ? -100 : 100;
+      // Ensure menu is initially hidden
       gsap.set([panel, ...preLayers], { xPercent: offscreen });
-
+      
+      // Mark as initialized so the menu becomes visible (though still offscreen)
+      setIsInitialized(true);
 
       gsap.set(textInner, { yPercent: 0 });
 
@@ -345,7 +349,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
 
   return (
     <div
-      className={`sm-scope z-40 ${isFixed ? 'fixed top-0 left-0 w-screen h-screen overflow-hidden' : 'w-full h-full'}`}
+      className={`sm-scope z-40 ${isFixed ? 'fixed top-0 left-0 w-screen h-screen overflow-hidden' : 'w-full h-full overflow-hidden'}`}
     >
       <div
         className={(className ? className + ' ' : '') + 'staggered-menu-wrapper relative w-full h-full z-40'}
@@ -356,6 +360,9 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         <div
           ref={preLayersRef}
           className="sm-prelayers absolute top-0 right-0 bottom-0 pointer-events-none z-[5]"
+          style={{
+            opacity: isInitialized ? 1 : 0
+          }}
           aria-hidden="true"
         >
           {(() => {
@@ -368,8 +375,10 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
             return arr.map((c, i) => (
               <div
                 key={i}
-                className="sm-prelayer absolute top-0 right-0 h-full w-full translate-x-0"
-                style={{ background: c }}
+                className="sm-prelayer absolute top-0 right-0 h-full w-full"
+                style={{ 
+                  background: c
+                }}
               />
             ));
           })()}
@@ -410,16 +419,17 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
           </div>
         </header>
 
-        <aside
-          id="staggered-menu-panel"
-          ref={panelRef}
-          className="staggered-menu-panel absolute top-0 right-0 h-full flex flex-col p-[6em_2em_2em_2em] overflow-y-auto z-10 backdrop-blur-[12px] pointer-events-auto"
-          style={{ 
-            WebkitBackdropFilter: 'blur(12px)',
-            backgroundColor: '#49513C'
-          }}
-          aria-hidden={!open}
-        >
+      <aside
+        id="staggered-menu-panel"
+        ref={panelRef}
+        className="staggered-menu-panel absolute top-0 right-0 h-full flex flex-col p-[6em_2em_2em_2em] overflow-y-auto z-10 backdrop-blur-[12px] pointer-events-auto"
+        style={{ 
+          WebkitBackdropFilter: 'blur(12px)',
+          backgroundColor: '#49513C',
+          opacity: isInitialized ? 1 : 0
+        }}
+        aria-hidden={!open}
+      >
           <div className="sm-panel-inner flex-1 flex flex-col gap-5">
             <ul
               className="sm-panel-list list-none m-0 p-0 flex flex-col gap-2"
@@ -537,7 +547,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
 .sm-scope [data-position='left'] .staggered-menu-panel { right: auto; left: 0; }
 .sm-scope .sm-prelayers { position: absolute; top: 0; right: 0; bottom: 0; width: clamp(260px, 38vw, 420px); pointer-events: none; z-index: 5; }
 .sm-scope [data-position='left'] .sm-prelayers { right: auto; left: 0; }
-.sm-scope .sm-prelayer { position: absolute; top: 0; right: 0; height: 100%; width: 100%; transform: translateX(0); }
+.sm-scope .sm-prelayer { position: absolute; top: 0; right: 0; height: 100%; width: 100%; }
 .sm-scope .sm-panel-inner { flex: 1; display: flex; flex-direction: column; gap: 1.25rem; }
 .sm-scope .sm-socials { margin-top: auto; padding-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
 .sm-scope .sm-socials-title { margin: 0; font-size: 1rem; font-weight: 500; color: var(--sm-accent, #ff0000); }

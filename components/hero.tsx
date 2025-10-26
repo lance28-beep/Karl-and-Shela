@@ -10,29 +10,39 @@ export function Hero() {
     `/background_picture/couple_${i + 1}.webp`
   )
 
-  // Preload all images
+  // Preload images progressively - show first image immediately
   useEffect(() => {
     let loadedCount = 0
     const totalImages = 23
-    const images = backgroundImages.map((src) => {
-      const img = new Image()
-      img.src = src
-      img.onload = () => {
-        loadedCount++
-        if (loadedCount === totalImages) {
-          setImagesLoaded(true)
+    
+    // Load first image with priority to show it immediately
+    const firstImg = new Image()
+    firstImg.src = backgroundImages[0]
+    firstImg.onload = () => {
+      loadedCount++
+      setImagesLoaded(true) // Show first image immediately
+    }
+    
+    // Then preload the rest in background
+    setTimeout(() => {
+      backgroundImages.slice(1).forEach((src) => {
+        const img = new Image()
+        img.src = src
+        img.onload = () => {
+          loadedCount++
         }
-      }
-      return img
-    })
+      })
+    }, 100)
   }, [])
 
   useEffect(() => {
+    if (!imagesLoaded) return
+    
     const imageTimer = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length)
     }, 5000)
     return () => clearInterval(imageTimer)
-  }, [backgroundImages.length])
+  }, [backgroundImages.length, imagesLoaded])
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#49513C]">

@@ -236,13 +236,13 @@ export function LoveStory() {
 
   return (
     <Section id="love-story" bgColor="cream">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24 lg:py-32">
         {/* Header */}
-        <div className="text-center mb-16 md:mb-24">
-          <Heading level="h2" className="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-teal mb-6">
+        <div className="text-center mb-10 md:mb-16 lg:mb-24">
+          <Heading level="h2" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-teal mb-4 md:mb-6">
             Our Love Story
           </Heading>
-          <p className="text-lg md:text-xl font-lora mb-8 max-w-2xl mx-auto" style={{ color: '#49513C' }}>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl font-lora mb-6 md:mb-8 max-w-2xl mx-auto" style={{ color: '#49513C' }}>
             A timeless journey of two hearts becoming one
           </p>
           <div className="h-1 w-32 mx-auto bg-gradient-to-r from-pink-300 via-teal to-pink-300 rounded-full"></div>
@@ -250,13 +250,13 @@ export function LoveStory() {
 
         {/* Main Content */}
         {hasContent ? (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-20 items-start mb-12 sm:mb-16 md:mb-20 lg:mb-24">
             {/* Left Column: Love Story Text */}
-            <div className="order-2 lg:order-1 space-y-6">
-              <div className="bg-white/60 backdrop-blur-sm rounded-3xl p-8 md:p-10 shadow-lg border border-ink/5">
-                <div className="space-y-6">
+            <div className="order-2 lg:order-1 space-y-4 sm:space-y-6">
+              <div className="bg-white/60 backdrop-blur-sm rounded-2xl md:rounded-3xl p-5 sm:p-6 md:p-8 lg:p-10 shadow-lg border border-ink/5">
+                <div className="space-y-4 md:space-y-6">
                   {siteContent.loveStory.content.split("\n\n").map((paragraph, index) => (
-                    <p key={index} className="font-lora text-base md:text-lg leading-relaxed" style={{ color: '#49513C' }}>
+                    <p key={index} className="font-lora text-sm sm:text-base md:text-lg leading-relaxed" style={{ color: '#49513C' }}>
                       {paragraph}
                     </p>
                   ))}
@@ -271,7 +271,7 @@ export function LoveStory() {
           </div>
         ) : (
           /* Centered Photo Collage Only */
-          <div className="flex justify-center mb-24">
+          <div className="flex justify-center mb-12 sm:mb-16 md:mb-20 lg:mb-24">
             <div className="relative w-full max-w-2xl">
               <PhotoCollage />
             </div>
@@ -279,12 +279,12 @@ export function LoveStory() {
         )}
 
         {/* Timeline Section */}
-        <div className="mt-32">
-          <div className="text-center mb-20">
-            <h3 className="text-3xl md:text-4xl lg:text-5xl font-playfair font-bold text-teal mb-4">
+        <div className="mt-16 md:mt-24 lg:mt-32">
+          <div className="text-center mb-12 md:mb-16 lg:mb-20">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-playfair font-bold text-teal mb-3 md:mb-4">
               Our Journey Together
             </h3>
-            <p className="text-base md:text-lg font-lora mb-6" style={{ color: '#49513C' }}>
+            <p className="text-sm sm:text-base md:text-lg font-lora mb-4 md:mb-6" style={{ color: '#49513C' }}>
               Milestones that shaped our beautiful story
             </p>
             <div className="h-1 w-40 mx-auto bg-gradient-to-r from-transparent via-pink-300 to-transparent"></div>
@@ -295,14 +295,14 @@ export function LoveStory() {
             <div className="absolute left-11 md:left-1/2 md:transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-pink-200 via-pink-300 to-teal/40 shadow-lg"></div>
 
             {/* Timeline Events */}
-            <div className="space-y-20">
+            <div className="space-y-12 sm:space-y-16 md:space-y-20">
               {timeline.map((event, index) => (
                 <div
                   key={index}
                   ref={(el) => {
                     timelineRefs.current[index] = el
                   }}
-                  className="relative flex items-start gap-6 md:gap-8 transition-all duration-1000 opacity-0 translate-y-8"
+                  className="relative flex items-start gap-4 sm:gap-5 md:gap-6 lg:gap-8 transition-all duration-1000 opacity-0 translate-y-8"
                 >
                   {/* Timeline Marker */}
                   <div className="relative z-10 flex-shrink-0 mt-2">
@@ -311,52 +311,52 @@ export function LoveStory() {
                   </div>
 
                   {/* Content Card */}
-                  <div className="flex-1 bg-white/90 backdrop-blur-sm rounded-3xl p-6 md:p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border border-pink-100/80 hover:border-pink-200">
+                  <div className="flex-1 bg-white/90 backdrop-blur-sm rounded-2xl md:rounded-3xl p-4 sm:p-5 md:p-6 lg:p-8 xl:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border border-pink-100/80 hover:border-pink-200">
                     {/* Date */}
-                    <div className="mb-4">
-                      <span className="inline-block px-4 py-2 bg-gradient-to-r from-pink-100 via-pink-50 to-teal/10 rounded-full text-sm font-semibold text-pink-700 uppercase tracking-wider shadow-sm">
+                    <div className="mb-3 md:mb-4">
+                      <span className="inline-block px-3 py-1 sm:px-4 sm:py-2 bg-gradient-to-r from-pink-100 via-pink-50 to-teal/10 rounded-full text-xs sm:text-sm font-semibold text-pink-700 uppercase tracking-wider shadow-sm">
                         {event.date}
                       </span>
                     </div>
 
                     {/* Title */}
-                    <h4 className="text-2xl md:text-3xl font-playfair font-bold text-teal mb-4">
+                    <h4 className="text-xl sm:text-2xl md:text-3xl font-playfair font-bold text-teal mb-3 md:mb-4">
                       {event.title}
                     </h4>
 
                     {/* Description */}
                     {event.description && (
-                      <p className="leading-relaxed mb-5 font-lora text-base md:text-lg" style={{ color: '#49513C' }}>
+                      <p className="leading-relaxed mb-4 md:mb-5 font-lora text-sm sm:text-base md:text-lg" style={{ color: '#49513C' }}>
                         {event.description}
                       </p>
                     )}
 
                     {/* Quote(s) */}
                     {event.quote && (
-                      <div className="mt-6 space-y-4">
+                      <div className="mt-4 md:mt-6 space-y-3 md:space-y-4">
                         {Array.isArray(event.quote) ? (
                           event.quote.map((q, qIndex) => (
                             <div
                               key={qIndex}
-                              className="relative pl-6 border-l-4 border-pink-300/80 bg-gradient-to-r from-pink-50/50 to-transparent py-3 pr-4 rounded-r-lg"
+                              className="relative pl-4 sm:pl-6 border-l-4 border-pink-300/80 bg-gradient-to-r from-pink-50/50 to-transparent py-2 sm:py-3 pr-3 sm:pr-4 rounded-r-lg"
                             >
-                              <p className="italic leading-relaxed font-lora text-base md:text-lg" style={{ color: '#49513C' }}>
+                              <p className="italic leading-relaxed font-lora text-sm sm:text-base md:text-lg" style={{ color: '#49513C' }}>
                                 "{q}"
                               </p>
                               {Array.isArray(event.author) && event.author[qIndex] && (
-                                <p className="text-sm md:text-base text-teal font-semibold mt-3">
+                                <p className="text-xs sm:text-sm md:text-base text-teal font-semibold mt-2 sm:mt-3">
                                   — {event.author[qIndex]}
                                 </p>
                               )}
                             </div>
                           ))
                         ) : (
-                          <div className="relative pl-6 border-l-4 border-pink-300/80 bg-gradient-to-r from-pink-50/50 to-transparent py-3 pr-4 rounded-r-lg">
-                            <p className="italic leading-relaxed font-lora text-base md:text-lg" style={{ color: '#49513C' }}>
+                          <div className="relative pl-4 sm:pl-6 border-l-4 border-pink-300/80 bg-gradient-to-r from-pink-50/50 to-transparent py-2 sm:py-3 pr-3 sm:pr-4 rounded-r-lg">
+                            <p className="italic leading-relaxed font-lora text-sm sm:text-base md:text-lg" style={{ color: '#49513C' }}>
                               "{event.quote}"
                             </p>
                             {event.author && (
-                              <p className="text-sm md:text-base text-teal font-semibold mt-3">
+                              <p className="text-xs sm:text-sm md:text-base text-teal font-semibold mt-2 sm:mt-3">
                                 — {event.author}
                               </p>
                             )}
@@ -372,9 +372,9 @@ export function LoveStory() {
         </div>
 
         {/* Bottom Message */}
-        <div className="text-center mt-28 mb-8">
-          <div className="inline-block bg-white/80 backdrop-blur-sm px-8 py-4 rounded-full shadow-lg border border-ink/10">
-            <p className="font-lora italic text-lg md:text-xl" style={{ color: '#49513C' }}>
+        <div className="text-center mt-12 md:mt-20 lg:mt-28 mb-6 md:mb-8">
+          <div className="inline-block bg-white/80 backdrop-blur-sm px-5 py-3 sm:px-8 sm:py-4 rounded-full shadow-lg border border-ink/10">
+            <p className="font-lora italic text-sm sm:text-base md:text-lg lg:text-xl" style={{ color: '#49513C' }}>
               Our journey continues...
             </p>
           </div>

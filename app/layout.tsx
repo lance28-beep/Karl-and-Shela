@@ -25,9 +25,9 @@ export const metadata: Metadata = {
     address: false,
     telephone: true,
   },
-  metadataBase: new URL("https://karl-joseph-shela-marie-wedding.vercel.app/"),
+  metadataBase: new URL("https://karl-and-shela.vercel.app"),
   alternates: {
-    canonical: "https://karl-joseph-shela-marie-wedding.vercel.app/",
+    canonical: "https://karl-and-shela.vercel.app/",
   },
   icons: {
     icon: [
@@ -52,13 +52,13 @@ export const metadata: Metadata = {
     title: "Karl Joseph & Shela Marie Wedding | February 28, 2026 | National Shrine of St. Joseph",
     description:
       "Celebrate the union of Karl Joseph and Shela Marie on February 28, 2026, at National Shrine of St. Joseph, Philippines. Discover our love story, RSVP, view the gallery, and leave your wishes!",
-    url: "https://karl-joseph-shela-marie-wedding.vercel.app/",
+    url: "https://karl-and-shela.vercel.app/",
     siteName: "Karl Joseph & Shela Marie Wedding",
     locale: "en_PH",
     type: "website",
     images: [
       {
-        url: "https://karl-joseph-shela-marie-wedding.vercel.app/couple.png",
+        url: "/couple.png",
         width: 1200,
         height: 630,
         alt: "Karl Joseph & Shela Marie Wedding Invitation - February 28, 2026, National Shrine of St. Joseph",
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     title: "Karl Joseph & Shela Marie Wedding Invitation",
     description:
       "You're invited to the wedding of Karl Joseph and Shela Marie! February 28, 2026, National Shrine of St. Joseph, Philippines. RSVP, view our gallery, and leave a message! #angNaKARLjackpotSaPusoNiSHELA",
-    images: ["https://karl-joseph-shela-marie-wedding.vercel.app/couple.png"],
+    images: ["https://karl-and-shela.vercel.app/couple.png"],
     creator: "@karljosephshelamarie",
   },
   robots: {
@@ -108,7 +108,7 @@ export const metadata: Metadata = {
           },
         },
       ],
-      image: ["https://karl-joseph-shela-marie-wedding.vercel.app/couple.png"],
+      image: ["https://karl-and-shela.vercel.app/couple.png"],
       description:
         "You're invited to the wedding of Karl Joseph and Shela Marie! Join us on February 28, 2026, at National Shrine of St. Joseph, Philippines. RSVP, read our love story, view our gallery, and leave a message for the couple.",
       organizer: {
@@ -117,7 +117,7 @@ export const metadata: Metadata = {
       },
       offers: {
         "@type": "Offer",
-        url: "https://karl-joseph-shela-marie-wedding.vercel.app/",
+        url: "https://karl-and-shela.vercel.app",
         availability: "https://schema.org/InStock",
         price: "0",
         priceCurrency: "PHP",

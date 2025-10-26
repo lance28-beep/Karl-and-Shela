@@ -76,9 +76,9 @@ export function RSVP({ onSuccess }: RSVPFormProps) {
           </p>
           <div className="mt-3 p-4 bg-gradient-to-br from-yellow-50 to-yellow-50/80 border border-yellow-200/60 rounded-lg shadow-sm">
             <div className="flex items-start gap-3 mb-3">
-              <div className="flex-shrink-0 bg-yellow-100 p-1.5 rounded-full border border-yellow-300/50">
+              {/* <div className="flex-shrink-0 bg-yellow-100 p-1.5 rounded-full border border-yellow-300/50">
                 <AlertCircle className="text-yellow-700" size={18} />
-              </div>
+              </div> */}
               <div className="flex-1">
                 <h4 className="text-yellow-800 font-lora font-bold text-sm sm:text-base mb-2">Seats are Limited</h4>
                 <p className="text-yellow-700 font-lora text-xs sm:text-sm leading-relaxed text-left">
